@@ -50,6 +50,20 @@ console.log("TEST END WHEN SPEED IS ZERO");
 
 4. Make a program that asks 20 numbers from user. After that the program prints out how many of those numbers where even.
 
+let result = " ";
+let number, i;
+function askNumber() {
+  number = parseInt(prompt("Give me a number?"));
+  console.log("Your ", i, " number is ", number);
+}
+for (i = 1; i < 5; i++) {
+  askNumber();
+  if (number % 2 == 0) {
+    result += number + " ";
+  }
+}
+console.log("All the even numbers are ", result);
+
 5. Make a program that asks numbers from the user, until user gives 0 and then program ends. In the end program prints out average of the numbers.
 
 6. Make a program that asks 25 numbers form the user. In the end program prints out average of the numbers.
