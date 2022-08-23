@@ -27,6 +27,17 @@ break;
 }
 console.log(result);
 
+---------------------------- Margit's Solution ------------------------------------------------
+let result= "";
+let end= 98;
+
+for (let i=2; i <100; i+= 2) {
+result += ' ' + i + ' ';
+result += ' ' + end + ' ';
+end -=2;
+}
+console.log(result);
+
 3. Make a program that asks repeatedly from the user the distance (km) and time (h) and calculates average speed. The program ends when user gives 0 for the distance. (After getting 0, the program does not ask anything from the user.)
 
 let i = 1;
@@ -52,6 +63,7 @@ console.log("TEST END WHEN SPEED IS ZERO");
 
 let result = " ";
 let number, i;
+let even = 0;
 function askNumber() {
 number = parseInt(prompt("Give me a number?"));
 console.log("Your ", i, " number is ", number);
@@ -60,8 +72,10 @@ for (i = 1; i < 5; i++) {
 askNumber();
 if (number % 2 == 0) {
 result += number + " ";
+even++;
 }
 }
+console.log("There are ", even," even number(s)");
 console.log("All the even numbers are ", result);
 
 5. Make a program that asks numbers from the user, until user gives 0 and then program ends. In the end program prints out average of the numbers.
@@ -74,7 +88,7 @@ function askNumber() {
 number = parseInt(prompt("Give me a number?"));
 console.log("Your ", i, " number is ", number);
 sum += number;
-console.log("Your current sum is ", sum);
+
 average = sum / (i - 1);
 }
 
@@ -82,13 +96,14 @@ for (i = 1; i < 100; i++) {
 askNumber();
 if (number == 0) {
 i += 1000;
+}
+}
+console.log("The sum is ",sum);
 console.log("The average is ", average);
 console.log("Program ends because result is 0");
-}
-}
 
 6. Make a program that asks 25 numbers form the user. In the end program prints out average of the numbers.
-   let result = " ";
+
    let number, i, average;
    let sum = 0;
 
@@ -96,21 +111,17 @@ function askNumber() {
 number = parseInt(prompt("Give me a number?"));
 console.log("Your ", i, " number is ", number);
 sum += number;
-console.log("Your current sum is ", sum);
 average = sum / i;
 }
 
-for (i = 1; i < 26; i++) {
+for (i = 1; i < 6; i++) {
 askNumber();
-if (i == 25) {
-i += 1000;
+}
+console.log("The sum is ", sum);
 console.log("The average is ", average);
-}
-}
 
 7. Make a program that ask first one number from the user. After that the program asks: ”Do you want to continue giving numbers?(y/n)”. If user answers y, the program continues to ask another number. If user answers n, program ends. In the end program prints out average of the numbers.
 
-let result = " ";
 let number, i, average, answer;
 let sum = 0;
 
@@ -123,7 +134,7 @@ average = sum / i;
 }
 
 function giveNumber() {
-answer = String(prompt("Do you want to give more number?"));
+answer = String(prompt("Do you want to give more number? (y/n)"));
 console.log("your answer is ", answer);
 if (answer == "y") {
 console.log("You answered YES, program continues");
@@ -173,7 +184,7 @@ NOTE: haven't found a way to repeat howManyNumber() when user gives wrong answer
 9. Make a program that asks ten numbers and in the end prints out two biggest numbers.
 
 let i, number;
-let num1 = (num2 = 0);
+let num1 = (num2 = -Infinity);
 
 function askNumber() {
 number = parseInt(prompt("Give me a number?"));
@@ -209,32 +220,36 @@ sum += number;
 average = sum / i;
 }
 
-for (i = 1; i < 11; i++) {
+for (i = 1; i < 5; i++) {
 askNumber();
 if (number > biggest && number < smallest) {
 biggest = number;
 smallest = number;
 console.log(
-"Biggest number is ",
-biggest,
-" and smallest number is",
-smallest
+"Now the smallest number is ",
+smallest,
+" and the biggest is ",
+biggest
 );
 } else if (number > biggest) {
 biggest = number;
 console.log(
-"Biggest number is ",
-biggest,
-" and smallest number is",
-smallest
+"Now the smallest number is ",
+smallest,
+" and the biggest is ",
+biggest
 );
 } else if (number < smallest) {
 smallest = number;
 console.log(
-"Biggest number is ",
-biggest,
-" and smallest number is",
-smallest
+"Now the smallest number is ",
+smallest,
+" and the biggest is ",
+biggest
+);
+} else {
+console.log(
+"The number is neither the smallest or the biggest, nothing changes."
 );
 }
 }

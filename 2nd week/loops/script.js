@@ -1,22 +1,18 @@
-let i, number;
-let num1 = (num2 = 0);
-
-function askNumber() {
-  number = parseInt(prompt("Give me a number?"));
-  console.log("Your number is ", number);
+let i = 1;
+let speed = 1;
+function askSpeed() {
+  let distance = parseInt(prompt("What the distance in km?"));
+  let time = parseInt(prompt("What the time in hour?"));
+  speed = parseInt(distance / time);
+  console.log("This is test number", i);
+  console.log("Distance is ", distance, " km and time is ", time, "hour");
+  console.log("Your speed is ", speed, " km/h");
 }
-for (i = 1; i < 11; i++) {
-  askNumber();
-  if (number > num1 && number > num2) {
-    num1 = num2;
-    num2 = number;
-    console.log("num1 =", num1, " and num2 =", num2);
-  } else if (number > num1 && number < num2) {
-    num1 = number;
-    console.log("num1 =", num1, " and num2 =", num2);
-  } else {
-    console.log("Nothing changes, num1 =", num1, " and num2 =", num2);
+
+for (i = 1; i < 100; i++) {
+  askSpeed();
+  if (speed <= 0) {
+    i += 1000;
+    console.log("TEST END WHEN SPEED IS ZERO");
   }
 }
-
-console.log("The two biggest numbers are ", num1, " and ", num2);
