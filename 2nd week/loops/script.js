@@ -1,18 +1,30 @@
-let i = 1;
-let speed = 1;
-function askSpeed() {
-  let distance = parseInt(prompt("What the distance in km?"));
-  let time = parseInt(prompt("What the time in hour?"));
-  speed = parseInt(distance / time);
-  console.log("This is test number", i);
-  console.log("Distance is ", distance, " km and time is ", time, "hour");
-  console.log("Your speed is ", speed, " km/h");
-}
-
-for (i = 1; i < 100; i++) {
-  askSpeed();
-  if (speed <= 0) {
-    i += 1000;
-    console.log("TEST END WHEN SPEED IS ZERO");
+let i, number;
+let smallest = Infinity;
+let a;
+function howManyNumber() {
+  a = parseInt(prompt("How many number you want to give?"));
+  console.log("You want to give ", a, " number(s)");
+  if (isNaN(a) || a < 1) {
+    console.log("You did not gave a correct number, try again");
+    a = parseInt(
+      prompt(
+        "You did not gave a correct number, try again. How many number you want to give?"
+      )
+    );
+  } else {
+    for (i = 1; i < a + 1; i++) {
+      askNumber();
+    }
   }
 }
+// bug: cannot run if user give 2 consecutive wrong answer//
+function askNumber() {
+  number = parseInt(prompt("Give me the number?"));
+  console.log("Your ", i, " number is ", number);
+  if (number < smallest) {
+    smallest = number;
+  }
+}
+
+howManyNumber();
+console.log("The smallest number is ", smallest);
