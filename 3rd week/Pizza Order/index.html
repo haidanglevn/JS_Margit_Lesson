@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Order</title>
+  </head>
+  <body>
+    <h1>Pizza Order Page</h1>
+    <form id="pizzaSize">
+      <p>Step 1, please choose your pizza size:</p>
+      <input type="radio" name="size" value="for2" checked /> For 2, the price
+      is 7,50€ <br />
+      <input type="radio" name="size" value="for4" /> For 4, the price is 10,50€
+      <br />
+      <input type="radio" name="size" value="for6" /> For 6, the price is 12,50€
+      <br />
+      <input type="radio" name="size" value="for8" /> For 8, the price is 15,50€
+      <br />
+    </form>
+    <form id="topping">
+      <p>
+        Step 2, choose some toppings for 0,5€/each (btw the first four are free
+        *wink wink*)
+      </p>
+      <p>Cheese</p>
+      <input type="checkbox" name="topping1" value="Mozzarella" />Mozzarella
+      <br />
+      <input type="checkbox" name="topping2" value="Cheddar" />Cheddar
+      <br />
+      <input type="checkbox" name="topping3" value="Parmesan" />Parmesan
+      <br />
+      <p>Vege</p>
+      <input type="checkbox" name="topping4" value="Basil" />Basil
+      <br />
+      <input type="checkbox" name="topping5" value="Spinach" />Spinach
+      <br />
+      <input type="checkbox" name="topping6" value="Tomato" />Tomato
+      <br />
+      <input type="checkbox" name="topping7" value="Bell" />Bell pepper
+      <br />
+      <input type="checkbox" name="topping8" value="Red Onion" />Red onion
+      <br />
+      <p>Protein</p>
+      <input type="checkbox" name="topping9" value="Sausage" />Sausage
+      <br />
+      <input type="checkbox" name="topping10" value="Mushroom" />Mushroom
+      <br />
+      <input type="checkbox" name="topping11" value="Shrimp" />Shrimp
+      <br />
+      <input type="checkbox" name="topping12" value="Bacon" />Bacon
+      <br />
+    </form>
+    <form>
+      <label for="delivery">Choose a form of delivery: </label>
+
+      <select id="delivery">
+        <option value="home">Home delivery, +5€</option>
+        <option value="eatin">Eat in</option>
+        <option value="pickup">Pickup at the store, -2€</option>
+      </select>
+      <div>
+        <p>And finally, give us your name here:</p>
+        <textarea type="text"></textarea>
+      </div>
+    </form>
+    <form>
+      <button type="submit">Confirm your order</button>
+    </form>
+    <div>
+      <p>This is a summary of your order:</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
