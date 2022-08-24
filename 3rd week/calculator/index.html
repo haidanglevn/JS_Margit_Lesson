@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    
     <title>Gasoline price calculator</title>
   </head>
   <body>
+    <script src="script.js"></script>
     <h1>Gasoline price calculor</h1>
     <div>
       Make a program that asks the price of the gasoline and the amount of money
@@ -16,11 +18,11 @@
       litres, then message on the screen: "good, you can escape now" if less, it
       shows the message: "Ups, you have to stay here.
     </div>
-    <label>Price: </label>
-    <input type="text" id="price" value="" /><br /><br />
-    <label>Money: </label>
-    <input type="text" id="money" value="" /><br /><br />
-    <button type="button" onclick="calculate()">Calculate</button>
+    <label for="price">Price: </label>
+    <input type="number" id="price"  /><br /><br />
+    <label for="money">Money: </label>
+    <input type="number" id="money"  /><br /><br />
+    <button type="button" id="calculate" onclick="calculate()">Calculate</button>
     <p id="result"></p>
   </body>
 </html>
