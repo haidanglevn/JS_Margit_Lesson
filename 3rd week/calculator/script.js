@@ -1,4 +1,4 @@
-let gas;
+let gas, price, money;
 
 function calculate(price, money) {
   let price = document.getElementById("price").value;
