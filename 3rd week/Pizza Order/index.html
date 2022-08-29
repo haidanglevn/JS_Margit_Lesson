@@ -8,149 +8,162 @@
     <title>Pizza Order</title>
   </head>
   <body>
-    <h1>Pizza Order Page</h1>
-    <form id="pizzaSize">
-      <p>Step 1, please choose your pizza size:</p>
-      <input
-        type="radio"
-        name="size"
-        value="for 2"
-        onchange="pizzaSize(this.value)"
-      />
-      For 2, the price is 7,50€ <br />
-      <input
-        type="radio"
-        name="size"
-        value="for 4"
-        onchange="pizzaSize(this.value)"
-      />
-      For 4, the price is 10,50€
-      <br />
-      <input
-        type="radio"
-        name="size"
-        value="for 6"
-        onchange="pizzaSize(this.value)"
-      />
-      For 6, the price is 12,50€
-      <br />
-      <input
-        type="radio"
-        name="size"
-        value="for 8"
-        onchange="pizzaSize(this.value)"
-      />
-      For 8, the price is 15,50€
-      <br />
-    </form>
-    <form id="topping">
-      <p>
-        Step 2, choose some toppings for 0,5€/each (btw the first four are free
-        *wink wink*)
-      </p>
-      <p>Cheese</p>
-      <input
-        type="checkbox"
-        name="topping"
-        value="Mozzarella"
-        onchange="addTopping(this.value)"
-      />Mozzarella
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Cheddar"
-        onchange="addTopping(this.value)"
-      />Cheddar
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Parmesan"
-        onchange="addTopping(this.value)"
-      />Parmesan
-      <br />
-      <p>Vege</p>
-      <input
-        type="checkbox"
-        name="topping"
-        value="Basil"
-        onchange="addTopping(this.value)"
-      />Basil
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Spinach"
-        onchange="addTopping(this.value)"
-      />Spinach
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Tomato"
-        onchange="addTopping(this.value)"
-      />Tomato
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Bell"
-        onchange="addTopping(this.value)"
-      />Bell pepper
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Red Onion"
-        onchange="addTopping(this.value)"
-      />Red onion
-      <br />
-      <p>Protein</p>
-      <input
-        type="checkbox"
-        name="topping"
-        value="Sausage"
-        onchange="addTopping(this.value)"
-      />Sausage
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Mushroom"
-        onchange="addTopping(this.value)"
-      />Mushroom
-      <br />
-      <input
-        type="checkbox"
-        name="topping"
-        value="Shrimp"
-        onchange="addTopping(this.value)"
-      />Shrimp
-      <br />
-      <input
-        type="checkbox"
-        name="topping12"
-        value="Bacon"
-        onchange="addTopping(this.value)"
-      />Bacon
-      <br />
-    </form>
-    <form>
-      <label for="delivery"> Step 3, choose a form of delivery: </label>
-      <select name="delivery" id="delivery" onchange="addDelivery(this.value)">
-        <option value="" disabled selected>Please choose an option</option>
-        <option value="Eat in">Eat in</option>
-        <option value="Home Delivery">Home delivery, +5€</option>
-        <option value="Pick up">Pickup at the store</option>
-      </select>
-      <div>
-        <p>And finally, give us your name here:</p>
-        <textarea type="text" id="customerName"></textarea>
-      </div>
+    <header>
+      <p id="logo">PizzaEveryday</p>
+      <h1>
+        Pizza <del>Perjantai</del> <br />
+        EVERYDAY
+      </h1>
+      <h2>Let's get you a pizza NOW!</h2>
+    </header>
 
-      <button type="button" onclick="summary()">Confirm your order</button>
-    </form>
+    <div id="orderForm">
+      <form class="grid-item" id="pizzaSize">
+        <p>Step 1, please choose your pizza size:</p>
+        <input
+          type="radio"
+          name="size"
+          value="for 2"
+          onchange="pizzaSize(this.value)"
+        />
+        For 2, the price is 7,50€ <br />
+        <input
+          type="radio"
+          name="size"
+          value="for 4"
+          onchange="pizzaSize(this.value)"
+        />
+        For 4, the price is 10,50€
+        <br />
+        <input
+          type="radio"
+          name="size"
+          value="for 6"
+          onchange="pizzaSize(this.value)"
+        />
+        For 6, the price is 12,50€
+        <br />
+        <input
+          type="radio"
+          name="size"
+          value="for 8"
+          onchange="pizzaSize(this.value)"
+        />
+        For 8, the price is 15,50€
+        <br />
+      </form>
+      <form class="grid-item" id="topping">
+        <p>
+          Step 2, choose some toppings for 0,5€/each (btw the first four are
+          free *wink wink*)
+        </p>
+        <p>Cheese</p>
+        <input
+          type="checkbox"
+          name="topping"
+          value="Mozzarella"
+          onchange="addTopping(this.value)"
+        />Mozzarella
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Cheddar"
+          onchange="addTopping(this.value)"
+        />Cheddar
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Parmesan"
+          onchange="addTopping(this.value)"
+        />Parmesan
+        <br />
+        <p>Vege</p>
+        <input
+          type="checkbox"
+          name="topping"
+          value="Basil"
+          onchange="addTopping(this.value)"
+        />Basil
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Spinach"
+          onchange="addTopping(this.value)"
+        />Spinach
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Tomato"
+          onchange="addTopping(this.value)"
+        />Tomato
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Bell"
+          onchange="addTopping(this.value)"
+        />Bell pepper
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Red Onion"
+          onchange="addTopping(this.value)"
+        />Red onion
+        <br />
+        <p>Protein</p>
+        <input
+          type="checkbox"
+          name="topping"
+          value="Sausage"
+          onchange="addTopping(this.value)"
+        />Sausage
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Mushroom"
+          onchange="addTopping(this.value)"
+        />Mushroom
+        <br />
+        <input
+          type="checkbox"
+          name="topping"
+          value="Shrimp"
+          onchange="addTopping(this.value)"
+        />Shrimp
+        <br />
+        <input
+          type="checkbox"
+          name="topping12"
+          value="Bacon"
+          onchange="addTopping(this.value)"
+        />Bacon
+        <br />
+      </form>
+      <form class="grid-item">
+        <label for="delivery"> Step 3, choose a form of delivery: </label>
+        <select
+          name="delivery"
+          id="delivery"
+          onchange="addDelivery(this.value)"
+        >
+          <option value="" disabled selected>Please choose an option</option>
+          <option value="Eat in">Eat in</option>
+          <option value="Home Delivery">Home delivery, +5€</option>
+          <option value="Pick up">Pickup at the store</option>
+        </select>
+        <div>
+          <p>And finally, give us your name here:</p>
+          <textarea type="text" id="customerName"></textarea>
+        </div>
+        <button type="button" onclick="summary()">Confirm your order</button>
+      </form>
+    </div>
     <div id="summary">
       <p>This is a summary of your order:</p>
       <div>
