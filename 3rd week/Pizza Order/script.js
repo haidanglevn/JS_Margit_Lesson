@@ -58,6 +58,7 @@ const addDelivery = (val) => {
 
 let totalPrice, customername;
 const summary = () => {
+  document.getElementById("summary").style.visibility = "visible";
   // calculate total price //
   totalPrice = pizzaPrice + toppingPrice + deliveryPrice;
   console.log(pizzaPrice, toppingPrice, deliveryPrice, totalPrice);
