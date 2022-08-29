@@ -11,7 +11,7 @@ body {
 #orderForm {
   display: grid;
   grid-template-columns: auto auto auto;
-  text-align: center;
+  text-align: left;
   padding: 10px;
 }
 
