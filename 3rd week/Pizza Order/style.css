@@ -60,6 +60,7 @@ header {
 textarea {
   width: 100%;
   height: 100px;
+  padding: 12px 20px;
 }
 
 input,
@@ -69,10 +70,18 @@ button {
   margin: 5px;
 }
 button {
-  background-color: #11760f;
+  border-radius: 20px;
+  background-color: #009541;
+  font-size: 20px;
+  color: white;
+  font-weight: 1000;
+  padding: 10px;
 }
-#payment button {
-  align-items: center;
+
+button:hover {
+  background-color: #005826;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #orderForm {
@@ -95,6 +104,15 @@ button {
 }
 
 #summary .grid-item {
-  width: 400px;
+  width: 95%;
   background-color: white;
+}
+
+#payment {
+  padding: 40% 20px;
+  text-align: center;
+}
+
+#confirm {
+  text-align: center;
 }
