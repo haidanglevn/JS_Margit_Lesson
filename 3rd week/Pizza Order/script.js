@@ -1,5 +1,5 @@
 // pizza size
-let pizzaPrice = 0;
+let pizzaPrice;
 const pizzaSize = (val) => {
   if (val == "for 2") {
     pizzaPrice = 7.5;
@@ -83,12 +83,20 @@ const summary = () => {
   // calculate total price //
   totalPrice = pizzaPrice + toppingPrice + deliveryPrice;
   console.log(pizzaPrice, toppingPrice, deliveryPrice, totalPrice);
-  document.getElementById("totalPrice").innerHTML = totalPrice + "€";
-  // get customer details //
-  customername = document.getElementById("customerName").value;
-  deliveryAddress = document.getElementById("homeAddress").value;
-  console.log(customername);
-  console.log(deliveryAddress);
-  document.getElementById("sumCustomerName").innerHTML = customername;
-  document.getElementById("sumAddress").innerHTML = deliveryAddress;
+
+  // validate
+  if (pizzaPrice === undefined) {
+    document.getElementById("alert").innerHTML =
+      "Please choose a pizza type from step 1!";
+  } else {
+    document.getElementById("alert").innerHTML = "";
+    document.getElementById("totalPrice").innerHTML = totalPrice + "€";
+    // get customer details //
+    customername = document.getElementById("customerName").value;
+    deliveryAddress = document.getElementById("homeAddress").value;
+    console.log(customername);
+    console.log(deliveryAddress);
+    document.getElementById("sumCustomerName").innerHTML = customername;
+    document.getElementById("sumAddress").innerHTML = deliveryAddress;
+  }
 };

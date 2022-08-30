@@ -96,6 +96,11 @@ button:hover {
   border: 1px solid;
 }
 
+#alert {
+  color: red;
+  font-weight: bold;
+}
+
 #summary {
   display: grid;
   grid-template-columns: auto auto;
