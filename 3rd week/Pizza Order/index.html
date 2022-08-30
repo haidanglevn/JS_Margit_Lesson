@@ -10,30 +10,32 @@
   <body>
     <header>
       <p id="logo">PizzaEveryday</p>
-      <h1>
-        Pizza <del>Perjantai</del> <br />
-        EVERYDAY
-      </h1>
-      <h2>Let's get you a pizza NOW!</h2>
+      <div id="hero">
+        <h1>
+          Pizza <del>Perjantai</del> <br />
+          EVERYDAY
+        </h1>
+        <h2>Let's get you a pizza NOW!</h2>
+      </div>
     </header>
 
     <div id="orderForm">
       <form class="grid-item" id="pizzaSize">
-        <p>Step 1, please choose your pizza size:</p>
+        <h2>Step 1, please choose your pizza size:</h2>
         <input
           type="radio"
           name="size"
           value="for 2"
           onchange="pizzaSize(this.value)"
         />
-        For 2, the price is 7,50€ <br />
+        For 2 people (7,50€)<br />
         <input
           type="radio"
           name="size"
           value="for 4"
           onchange="pizzaSize(this.value)"
         />
-        For 4, the price is 10,50€
+        For 4 people (10,50€)
         <br />
         <input
           type="radio"
@@ -41,7 +43,7 @@
           value="for 6"
           onchange="pizzaSize(this.value)"
         />
-        For 6, the price is 12,50€
+        For 6 people (12,50€)
         <br />
         <input
           type="radio"
@@ -49,15 +51,14 @@
           value="for 8"
           onchange="pizzaSize(this.value)"
         />
-        For 8, the price is 15,50€
+        For 8 people (15,50€)
         <br />
+        <p id="showPizzaPrice"></p>
       </form>
       <form class="grid-item" id="topping">
-        <p>
-          Step 2, choose some toppings for 0,5€/each (btw the first four are
-          free *wink wink*)
-        </p>
-        <p>Cheese</p>
+        <h2>Step 2, choose some toppings for 0,5€/each</h2>
+        <h5>(btw the first four are free *wink wink*)</h5>
+        <h3>Cheese</h3>
         <input
           type="checkbox"
           name="topping"
@@ -79,7 +80,7 @@
           onchange="addTopping(this.value)"
         />Parmesan
         <br />
-        <p>Vege</p>
+        <h3>Vege</h3>
         <input
           type="checkbox"
           name="topping"
@@ -115,7 +116,7 @@
           onchange="addTopping(this.value)"
         />Red onion
         <br />
-        <p>Protein</p>
+        <h3>Protein</h3>
         <input
           type="checkbox"
           name="topping"
@@ -144,9 +145,12 @@
           onchange="addTopping(this.value)"
         />Bacon
         <br />
+        <p id="showToppingPrice"></p>
       </form>
-      <form class="grid-item">
-        <label for="delivery"> Step 3, choose a form of delivery: </label>
+      <form class="grid-item" id="customerDetails">
+        <h2>
+          <label for="delivery"> Step 3, choose a form of delivery: </label>
+        </h2>
         <select
           name="delivery"
           id="delivery"
@@ -157,29 +161,36 @@
           <option value="Home Delivery">Home delivery, +5€</option>
           <option value="Pick up">Pickup at the store</option>
         </select>
+
+        <div id="deliveryHome">
+          <h2>Home? Which Home?</h2>
+          <textarea type="text" id="homeAddress"></textarea>
+        </div>
         <div>
-          <p>And finally, give us your name here:</p>
-          <textarea type="text" id="customerName"></textarea>
+          <h2>And finally, how should we call you?</h2>
+          <textarea
+            type="text"
+            id="customerName"
+            placeholder="Enter your name and phone number"
+          ></textarea>
         </div>
         <button type="button" onclick="summary()">Confirm your order</button>
       </form>
     </div>
     <div id="summary">
-      <p>This is a summary of your order:</p>
-      <div>
+      <div class="grid-item">
+        <h2>This is a summary of your order:</h2>
         <p>Customer Name: <em id="sumCustomerName"></em></p>
-      </div>
-      <div>
         <p>Pizza size: <em id="sumPizzaSize"></em></p>
         <p>Price: <em id="sumPizzaSizePrice"></em></p>
-      </div>
-      <div>
         <p>Toppings: <em id="sumTopping"></em></p>
         <p>Price: <em id="sumToppingPrice"></em></p>
+        <p>Delivery Methods: <em id="sumDelivery"></em></p>
+        <p id="sumDeliveryAdd">Delivery Address: <em id="sumAddress"></em></p>
       </div>
-      <p>Delivery Methods: <em id="sumDelivery"></em></p>
-      <p>Total price: <em id="totalPrice"></em></p>
-      <div id="payment">
+
+      <div class="grid-item" id="payment">
+        <h2>Total price: <em id="totalPrice"></em></h2>
         <button type="submit">Continue to checkout</button>
       </div>
     </div>
