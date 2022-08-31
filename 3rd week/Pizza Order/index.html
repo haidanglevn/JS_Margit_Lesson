@@ -53,7 +53,7 @@
         />
         For 8 people (15,50€)
         <br />
-        <p id="showPizzaPrice"></p>
+        <h3 id="showPizzaPrice"></h3>
       </form>
       <form class="grid-item" id="topping">
         <h2>Step 2, choose some toppings for 0,5€/each</h2>
@@ -145,7 +145,7 @@
           onchange="addTopping(this.value)"
         />Bacon
         <br />
-        <p id="showToppingPrice"></p>
+        <h3 id="showToppingPrice"></h3>
       </form>
       <form class="grid-item" id="customerDetails">
         <h2>
@@ -156,7 +156,7 @@
           id="delivery"
           onchange="addDelivery(this.value)"
         >
-          <option value="" disabled selected>Please choose an option</option>
+          <option value="" disabled>Please choose an option</option>
           <option value="Eat in">Eat in</option>
           <option value="Home Delivery">Home delivery, +5€</option>
           <option value="Pick up">Pickup at the store</option>
@@ -175,7 +175,9 @@
           ></textarea>
         </div>
         <div id="confirm">
-          <button type="button" onclick="summary()">Confirm your order</button>
+          <button type="button" onclick="summary()">
+            Click here to calculate your order
+          </button>
         </div>
         <div>
           <p id="alert"></p>
@@ -196,7 +198,7 @@
 
       <div class="grid-item" id="payment">
         <h2>Total price: <em id="totalPrice"></em></h2>
-        <button type="submit">Continue to checkout</button>
+        <button type="submit">Proceed to checkout</button>
       </div>
     </div>
     <script src="script.js"></script>

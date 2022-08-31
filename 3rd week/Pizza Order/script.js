@@ -23,7 +23,8 @@ const pizzaSize = (val) => {
   }
   console.log("pizza size =", val);
   console.log("pizza price= ", pizzaPrice);
-  document.getElementById("showPizzaPrice").innerHTML = "Total: " + pizzaPrice;
+  document.getElementById("showPizzaPrice").innerHTML =
+    "Total: " + pizzaPrice + "€";
 };
 
 // topping
@@ -65,7 +66,6 @@ const addDelivery = (val) => {
   if (val == "Home Delivery") {
     deliveryPrice += 5;
     document.getElementById("sumDelivery").innerHTML = val + " (+5€)";
-
     // toggle for Home delivery //
     document.getElementById("deliveryHome").style.visibility = "visible";
     document.getElementById("sumDeliveryAdd").style.visibility = "visible";
@@ -87,10 +87,18 @@ const summary = () => {
   // validate
   if (pizzaPrice === undefined) {
     document.getElementById("alert").innerHTML =
-      "Please choose a pizza type from step 1!";
+      "Please choose a pizza type in step 1";
+  } else if (toppingCounter < 4) {
+    document.getElementById("alert").innerHTML =
+      "Please choose at least 4 toppings";
+  } else if ((document.getElementById("delivery").selected = false)) {
+    document.getElementById("alert").innerHTML =
+      "Please choose a form of delivery";
+    console.log(true);
   } else {
     document.getElementById("alert").innerHTML = "";
     document.getElementById("totalPrice").innerHTML = totalPrice + "€";
+
     // get customer details //
     customername = document.getElementById("customerName").value;
     deliveryAddress = document.getElementById("homeAddress").value;
