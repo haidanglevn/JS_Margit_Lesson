@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Insurance Calc</title>
+  </head>
+  <body>
+    <h1>Insurance Calculator</h1>
+    <h2>First, we want to know your age. Are you under 18 years old?</h2>
+    <form id="under18">
+      <select name="under18" id="under18" onchange="underAge(this.value)">
+        <option value="" disabled selected>Please choose an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </form>
+    <h2>No? Then select your age group from below:</h2>
+    <form id="age">
+      <input type="radio" name="age" value="18-25" onchange="age18(this.value)"/> 18 - 25 years old <br />
+      <input type="radio" name="age" value="26-35" onchange="age18(this.value)"/> 26 - 35 years old <br />
+      <input type="radio" name="age" value="36-45" onchange="age18(this.value)"/> 36 - 45 years old <br />
+      <input type="radio" name="age" value="46-55" onchange="age18(this.value)"/> 46 - 55 years old <br />
+      <input type="radio" name="age" value="56-65" onchange="age18(this.value)"/> 56 - 65 years old <br />
+      <input type="radio" name="age" value="66+" onchange="age18(this.value)"/> Over 66 years old <br />
+    </form>
+    <h2>Pre-existing conditions</h2>
+    <form id="condition">
+      <input type="checkbox" name="condition" value="hypertension" /> Hypertension</br>
+      <input type="checkbox" name="condition" value="bloodsugar" /> Blood Sugar</br>
+      <input type="checkbox" name="condition" value="overweight" /> Overweight</br>
+    </form>
+    
+    <h2>Good habits</h2>
+    <form id="goodhabit">
+      <input type="checkbox" name="goodhabit" value="meditation" /> Meditation</br>
+      <input type="checkbox" name="goodhabit" value="exercise" /> Blood Sugar</br>
+      <input type="checkbox" name="goodhabit" value="vegetarian" /> Vegetarian</br>
+    </form>
+    <h2>Bad habits</h2>
+    <form id="badhabit">
+      <input type="checkbox" name="badhabit" value="smoking" /> Smoking</br>
+      <input type="checkbox" name="badhabit" value="alcohol" /> Consumption of alcohol</br>
+      <input type="checkbox" name="badhabit" value="drugs" /> Drugs</br>
+    </form>
+    <div id="confirm">
+          <button type="button" onclick="">Confirm your order</button>
+        </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
