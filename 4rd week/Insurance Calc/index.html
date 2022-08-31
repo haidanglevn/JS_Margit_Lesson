@@ -28,26 +28,30 @@
     </form>
     <h2>Pre-existing conditions</h2>
     <form id="condition">
-      <input type="checkbox" name="condition" value="hypertension" /> Hypertension</br>
-      <input type="checkbox" name="condition" value="bloodsugar" /> Blood Sugar</br>
-      <input type="checkbox" name="condition" value="overweight" /> Overweight</br>
+      <input type="checkbox" name="condition"  value="hypertension" onchange="calculate(this.value)" /> Hypertension</br>
+      <input type="checkbox" name="condition"  value="bloodsugar" onchange="calculate(this.value)" /> Blood Sugar</br>
+      <input type="checkbox" name="condition"  value="overweight" onchange="calculate(this.value)"/> Overweight</br>
     </form>
     
     <h2>Good habits</h2>
     <form id="goodhabit">
-      <input type="checkbox" name="goodhabit" value="meditation" /> Meditation</br>
-      <input type="checkbox" name="goodhabit" value="exercise" /> Blood Sugar</br>
-      <input type="checkbox" name="goodhabit" value="vegetarian" /> Vegetarian</br>
+      <input type="checkbox" name="goodhabit" value="meditation" onchange="calculate(this.value)"/> Meditation</br>
+      <input type="checkbox" name="goodhabit" value="exercise" onchange="calculate(this.value)"/> Daily exercise</br>
+      <input type="checkbox" name="goodhabit" value="vegetarian" onchange="calculate(this.value)"/> Vegetarian</br>
     </form>
+    
     <h2>Bad habits</h2>
     <form id="badhabit">
-      <input type="checkbox" name="badhabit" value="smoking" /> Smoking</br>
-      <input type="checkbox" name="badhabit" value="alcohol" /> Consumption of alcohol</br>
-      <input type="checkbox" name="badhabit" value="drugs" /> Drugs</br>
+      <input type="checkbox" name="badhabit" value="smoking" onchange="calculate(this.value)" /> Smoking</br>
+      <input type="checkbox" name="badhabit" value="alcohol" onchange="calculate(this.value)"/> Consumption of alcohol</br>
+      <input type="checkbox" name="badhabit" value="drugs" onchange="calculate(this.value)"/> Drugs</br>
     </form>
     <div id="confirm">
-          <button type="button" onclick="">Confirm your order</button>
-        </div>
+    <button type="button" onsubmit="calculate()">Calculate your insurance score</button>
+    <p id="alert"></p>
+    <p id="result"></p>
+    </div>
+    
     
     <script src="script.js"></script>
   </body>

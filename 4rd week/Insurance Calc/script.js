@@ -1,5 +1,11 @@
 // age
 let age, score;
+let badHabitCounter;
+let score1, score2;
+let score3 = 0;
+let goodHabitCounter;
+let conditionScore;
+let conditionCounter;
 const underAge = (val) => {
   if (val == "yes") {
     age = "under18";
@@ -40,4 +46,36 @@ const age18 = (val) => {
       break;
   }
   console.log(age, score);
+};
+
+// calculate score
+
+const calculate = () => {
+  if (score === undefined) {
+    document.getElementById("alert").innerHTML = "Please choose an age type";
+  } else {
+    document.getElementById("alert").innerHTML = " ";
+    // Conditions
+    let conditionCounter = Number(
+      document.querySelectorAll('input[name="condition"]:checked').length
+    );
+    // good habits
+    let goodHabitCounter = Number(
+      document.querySelectorAll('input[name="goodhabit"]:checked').length
+    );
+    //bad habits
+    let badHabitCounter = Number(
+      document.querySelectorAll('input[name="badhabit"]:checked').length
+    );
+    score1 = score + (score * conditionCounter * 1) / 100;
+    score2 = score1 - (score1 * goodHabitCounter * 5) / 100;
+    score3 = score2 + (score2 * badHabitCounter * 5) / 100;
+    console.log("initial score = ", score);
+    console.log("Condition counter: ", conditionCounter);
+    console.log("Good habits counter: ", goodHabitCounter);
+    console.log("Bad habits counter: ", badHabitCounter);
+    console.log("Score1 : ", Math.round(score1));
+    console.log("Score2 : ", Math.round(score2));
+    console.log("Score3 : ", Math.round(score3));
+  }
 };
