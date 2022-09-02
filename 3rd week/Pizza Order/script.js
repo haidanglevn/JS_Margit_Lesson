@@ -32,19 +32,20 @@ let toppingPrice = 0;
 let toppingCounter = 0;
 let toppingText = " ";
 const addTopping = (val) => {
-  console.log("topping =", val);
   if ((document.getElementById("topping").checked = true)) {
     toppingText += " " + val;
-    document.getElementById("sumTopping").innerHTML = toppingText;
-    toppingCounter += 1;
-    console.log("counter =", toppingCounter);
   }
+  console.log("topping =", val);
+  toppingCounter = document.querySelectorAll(
+    'input[name="topping"]:checked'
+  ).length;
+  console.log("counter =", toppingCounter);
   if (toppingCounter <= 4) {
     document.getElementById("sumToppingPrice").innerHTML =
       "The first four topping is FREE";
     toppingPrice = 0;
     document.getElementById("showToppingPrice").innerHTML =
-      "First 4 toppings is free";
+      "First 4 toppings is free, maybe some more?";
   } else {
     toppingPrice = 0.5 * (toppingCounter - 4);
     console.log("Topping price =", toppingPrice);
@@ -61,8 +62,10 @@ const addTopping = (val) => {
 
 // delivery
 let deliveryPrice = 0;
+let delivery;
 const addDelivery = (val) => {
   document.getElementById("sumDelivery").innerHTML = val;
+  delivery = val;
   if (val == "Home Delivery") {
     deliveryPrice += 5;
     document.getElementById("sumDelivery").innerHTML = val + " (+5€)";
@@ -80,31 +83,37 @@ const addDelivery = (val) => {
 // Summary
 let totalPrice, customername, deliveryAddress;
 const summary = () => {
+  // get customer details //
+  customername = document.getElementById("customerName").value;
+  deliveryAddress = document.getElementById("homeAddress").value;
+  document.getElementById("sumCustomerName").innerHTML = customername;
+  document.getElementById("sumAddress").innerHTML = deliveryAddress;
   // calculate total price //
   totalPrice = pizzaPrice + toppingPrice + deliveryPrice;
   console.log(pizzaPrice, toppingPrice, deliveryPrice, totalPrice);
-
+  console.log("delivery form: ", delivery);
+  console.log("customer name: ", customername);
+  console.log("delivery address: ", deliveryAddress);
   // validate
   if (pizzaPrice === undefined) {
-    document.getElementById("alert").innerHTML =
+    document.getElementById("alertStep1").innerHTML =
       "Please choose a pizza type in step 1";
   } else if (toppingCounter < 4) {
-    document.getElementById("alert").innerHTML =
+    document.getElementById("alertStep2").innerHTML =
       "Please choose at least 4 toppings";
-  } else if ((document.getElementById("delivery").selected = false)) {
-    document.getElementById("alert").innerHTML =
-      "Please choose a form of delivery";
-    console.log(true);
+  } else if (delivery == "Home Delivery" && deliveryAddress == "") {
+    document.getElementById("alertStep3").innerHTML =
+      "Please give us your address";
+  } else if (customername == "") {
+    document.getElementById("alertStep3").innerHTML =
+      "Please enter your name and phone number above";
   } else {
-    document.getElementById("alert").innerHTML = "";
+    // remove alert message //
+    document.getElementById("alertStep1").innerHTML = " ";
+    document.getElementById("alertStep2").innerHTML = " ";
+    document.getElementById("alertStep3").innerHTML = " ";
+    // add all the details //
+    document.getElementById("sumTopping").innerHTML = toppingText;
     document.getElementById("totalPrice").innerHTML = totalPrice + "€";
-
-    // get customer details //
-    customername = document.getElementById("customerName").value;
-    deliveryAddress = document.getElementById("homeAddress").value;
-    console.log(customername);
-    console.log(deliveryAddress);
-    document.getElementById("sumCustomerName").innerHTML = customername;
-    document.getElementById("sumAddress").innerHTML = deliveryAddress;
   }
 };

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+/* header */
+header {
+  height: 50vh;
+  width: 100vw;
+  padding: 0px;
+  margin: 0px;
+  color: white;
+  background-image: url(https://img.freepik.com/premium-photo/tasty-pepperoni-pizza-black-concrete-background_79782-2290.jpg?w=1800);
+  background-origin: border-box;
+  background-size: cover;
+}
+
+#logo {
+  margin: 0;
+  padding-left: 20px;
+  background-color: #11760f;
+  height: 3vh;
+  font-size: 30px;
+  color: black;
+  font-style: italic;
+  align-content: center;
+}
+
+#hero {
+  padding-top: 15vh;
+  padding-left: 30px;
+}
+
+/* body */
+body {
+  font-family: "Courier New", Courier, monospace;
+  margin: 0px;
+
+  background-color: #f3d8a6;
+  color: white;
+}
+/*  message */
+#message {
+  background-color: #f3d8a6;
+  padding: 10vh;
+  height: 45vh;
+  color: black;
+  text-align: center;
+}
+#message h1,
+h4,
+a {
+  padding: 20px;
+}

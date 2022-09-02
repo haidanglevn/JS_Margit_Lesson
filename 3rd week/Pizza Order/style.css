@@ -6,7 +6,8 @@ body {
   font-family: "Courier New", Courier, monospace;
   margin: 0px;
   padding: 0px;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 h1 {
@@ -19,12 +20,14 @@ h2 {
 
 /* header */
 header {
-  height: 600px;
+  height: 50vh;
+  width: 100vw;
   padding: 0px;
   margin: 0px;
   color: white;
   background-image: url(https://img.freepik.com/premium-photo/tasty-pepperoni-pizza-black-concrete-background_79782-2290.jpg?w=1800);
   background-origin: border-box;
+  background-position: center;
   background-size: cover;
 }
 
@@ -32,18 +35,20 @@ header {
   margin: 0;
   padding-left: 20px;
   background-color: #11760f;
-  height: 40px;
+  height: 3vh;
+  width: 100vw;
   font-size: 30px;
   color: black;
   font-style: italic;
 }
 
 #hero {
-  padding-top: 150px;
+  padding-top: 10vh;
   padding-left: 30px;
 }
 /* Order form */
 #orderForm {
+  width: 100vw;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -52,6 +57,11 @@ header {
     rgba(221, 215, 9, 1) 100%,
     rgba(0, 212, 255, 1) 100%
   );
+  color: rgb(2, 0, 36);
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: left;
+  padding: 10px;
 }
 
 #pizzaSize,
@@ -95,19 +105,12 @@ button:hover {
   font-weight: bold;
 }
 
-#orderForm {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  text-align: left;
-  padding: 10px;
-}
-
 .grid-item {
   padding: 20px;
   border: 1px solid;
 }
 
-#alert {
+.alert {
   color: red;
   font-weight: bold;
 }
@@ -117,10 +120,10 @@ button:hover {
   grid-template-columns: auto auto;
   padding: 5%;
   background-color: #009541c7;
+  color: black;
 }
 
 #summary .grid-item {
-  width: 95%;
   background-color: white;
 }
 
@@ -131,4 +134,85 @@ button:hover {
 
 #confirm {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* responsive */
+@media screen and (max-width: 1020px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    padding: 5px;
+  }
+
+  #orderForm {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    text-align: left;
+    padding: 2vw;
+  }
+  .grid-item {
+    padding: 5vw;
+  }
+
+  /* topping */
+  #toppingTitle {
+    grid-area: title;
+  }
+  #cheese {
+    grid-area: cheese;
+  }
+  #vege {
+    grid-area: vege;
+  }
+  #protein {
+    grid-area: protein;
+  }
+  #toppingAlert {
+    grid-area: alert;
+  }
+  #topping {
+    display: grid;
+    grid-template-areas:
+      "title title"
+      "cheese vege"
+      "protein vege"
+      "alert alert";
+  }
+}
+
+@media screen and (max-width: 605px) {
+  body {
+    font-size: small;
+    max-width: 100vw;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  input,
+  select,
+  button {
+    font-size: 20px;
+  }
+  #summary {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    padding: 3vw;
+  }
+  #payment {
+    padding: 3vw;
+  }
 }
