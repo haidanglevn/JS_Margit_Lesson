@@ -1,25 +1,17 @@
 // age
 let age, score;
-let badHabitCounter;
 let score1, score2;
 let score3 = 0;
-let goodHabitCounter;
 let conditionScore;
-let conditionCounter;
-const underAge = (val) => {
-  if (val == "yes") {
-    age = "under18";
-    score = 500;
-  } else {
-    age = 18;
-    score = 0;
-  }
-  console.log(age, score);
-};
+
 // upper age
 const age18 = (val) => {
   console.log(val);
   switch (val) {
+    case "under18":
+      age = 17;
+      score = 500;
+      break;
     case "18-25":
       age = 25;
       score = 550;
@@ -48,34 +40,33 @@ const age18 = (val) => {
   console.log(age, score);
 };
 
+document.getElementById("alert").innerHTML = " ";
+// Conditions
+let conditionCounter = Number(
+  document.querySelectorAll('input[name="condition"]:checked').length
+);
+// good habits
+let goodHabitCounter = Number(
+  document.querySelectorAll('input[name="goodhabit"]:checked').length
+);
+//bad habits
+let badHabitCounter = Number(
+  document.querySelectorAll('input[name="badhabit"]:checked').length
+);
+
 // calculate score
 
 const calculate = () => {
   if (score === undefined) {
     document.getElementById("alert").innerHTML = "Please choose an age type";
   } else {
-    document.getElementById("alert").innerHTML = " ";
-    // Conditions
-    let conditionCounter = Number(
-      document.querySelectorAll('input[name="condition"]:checked').length
-    );
-    // good habits
-    let goodHabitCounter = Number(
-      document.querySelectorAll('input[name="goodhabit"]:checked').length
-    );
-    //bad habits
-    let badHabitCounter = Number(
-      document.querySelectorAll('input[name="badhabit"]:checked').length
-    );
-    score1 = score + (score * conditionCounter * 1) / 100;
-    score2 = score1 - (score1 * goodHabitCounter * 5) / 100;
-    score3 = score2 + (score2 * badHabitCounter * 5) / 100;
-    console.log("initial score = ", score);
-    console.log("Condition counter: ", conditionCounter);
-    console.log("Good habits counter: ", goodHabitCounter);
-    console.log("Bad habits counter: ", badHabitCounter);
-    console.log("Score1 : ", Math.round(score1));
-    console.log("Score2 : ", Math.round(score2));
-    console.log("Score3 : ", Math.round(score3));
+    // Get customer name
+    let customerName = document.getElementById("customerName").value;
+    console.log(customerName);
+    score1 = Math.round(score + (score * conditionCounter * 1) / 100);
+    score2 = Math.round(score1 - (score1 * goodHabitCounter * 5) / 100);
+    score3 = Math.round(score2 + (score2 * badHabitCounter * 5) / 100);
+    document.getElementById("result").innerHTML =
+      "Hello " + customerName + ", your insurance score is " + score3;
   }
 };
