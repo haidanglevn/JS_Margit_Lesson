@@ -1,7 +1,7 @@
 // age
 let age, score;
-let score1, score2;
-let score3 = 0;
+let score1, score2, score3;
+
 let conditionScore;
 
 // upper age
@@ -41,32 +41,56 @@ const age18 = (val) => {
 };
 
 document.getElementById("alert").innerHTML = " ";
-// Conditions
-let conditionCounter = Number(
-  document.querySelectorAll('input[name="condition"]:checked').length
-);
-// good habits
-let goodHabitCounter = Number(
-  document.querySelectorAll('input[name="goodhabit"]:checked').length
-);
-//bad habits
-let badHabitCounter = Number(
-  document.querySelectorAll('input[name="badhabit"]:checked').length
-);
 
 // calculate score
 
 const calculate = () => {
+  // Get customer name
+  let customername = document.getElementById("customerName").value;
+  console.log("Customer name: ", customername);
   if (score === undefined) {
     document.getElementById("alert").innerHTML = "Please choose an age type";
+  } else if (customername == undefined) {
+    document.getElementById("alert").innerHTML = "Please give us your name";
   } else {
-    // Get customer name
-    let customerName = document.getElementById("customerName").value;
-    console.log(customerName);
+    document.getElementById("alert").innerHTML = "";
+    // Conditions
+    let conditionCounter = Number(
+      document.querySelectorAll('input[name="condition"]:checked').length
+    );
+    // good habits
+    let goodHabitCounter = Number(
+      document.querySelectorAll('input[name="goodhabit"]:checked').length
+    );
+    //bad habits
+    let badHabitCounter = Number(
+      document.querySelectorAll('input[name="badhabit"]:checked').length
+    );
     score1 = Math.round(score + (score * conditionCounter * 1) / 100);
     score2 = Math.round(score1 - (score1 * goodHabitCounter * 5) / 100);
     score3 = Math.round(score2 + (score2 * badHabitCounter * 5) / 100);
+    console.log(score1, score2, score3);
+  }
+};
+
+const showResult = () => {
+  // Get customer name
+  let customername = document.getElementById("customerName").value;
+  console.log("Customer name: ", customername);
+  if (customername == "") {
+    document.getElementById("alert").innerHTML = "Please give us your name";
+  } else if (score === undefined) {
+    document.getElementById("alert").innerHTML = "Please choose an age type";
+  } else {
+    document.getElementById("confirm").style.visibility = "visible";
+
     document.getElementById("result").innerHTML =
-      "Hello " + customerName + ", your insurance score is " + score3;
+      "Hello " +
+      customername +
+      ", your insurance score is " +
+      score3 +
+      ". Press the button below to get a quote for you life insurance from us!";
+    document.getElementById("thankName").innerHTML = customername;
+    document.getElementById("thankEmail").innerHTML = customerEmail;
   }
 };

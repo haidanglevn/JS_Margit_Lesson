@@ -8,20 +8,24 @@
     <title>Insurance Calc</title>
   </head>
   <body>
-    <h1>Insurance Calculator</h1>
-    <div id="customerName">
-    <h2>First, how should we call you?</h2>
+    <header>
+      
+    <div id="hero">
+      <h1>Insurance for life</h1>
+      <h2>The only life insurance you ever need.</h2>
+      <p>Calculate your risk score and get a quote now!</p>
+    </div>
+   </header>
+    <section id="form">
+    <div class="grid-item" id="age">
+      <h2>First, how should we call you?</h2>
           <textarea
             type="text"
             id="customerName"
             placeholder="Enter your name"
-            required
           ></textarea>
-    </div>
-    
-    <div>
-    <h2>Next, we want to know your age. Please select your age group from below:</h2>
-    <form id="age">
+    <h2>Next, we want to know your age.<br> Please select your age group from below:</h2>
+    <form>
       <input type="radio" name="age" value="under18" onchange="age18(this.value)"/> Under 18 years old <br />
       <input type="radio" name="age" value="18-25" onchange="age18(this.value)"/> 18 - 25 years old <br />
       <input type="radio" name="age" value="26-35" onchange="age18(this.value)"/> 26 - 35 years old <br />
@@ -32,40 +36,42 @@
     </form>
     </div>
     
-    <div>
-    <h2>Pre-existing conditions</h2>
-    <form id="condition">
+    <div class="grid-item" id="condition">
+    <h2>Let's talk about yourself. Do you have any...</h2>
+    <h2>Pre-existing conditions?</h2>
+    <form >
       <input type="checkbox" name="condition"  value="hypertension" onchange="calculate(this.value)" /> Hypertension</br>
       <input type="checkbox" name="condition"  value="bloodsugar" onchange="calculate(this.value)" /> Blood Sugar</br>
       <input type="checkbox" name="condition"  value="overweight" onchange="calculate(this.value)"/> Overweight</br>
     </form>
-    </div>
     
-    <div>
-    <h2>Good habits</h2>
-    <form id="goodhabit">
+    <h2>Good habits?</h2>
+    <form >
       <input type="checkbox" name="goodhabit" value="meditation" onchange="calculate(this.value)"/> Meditation</br>
       <input type="checkbox" name="goodhabit" value="exercise" onchange="calculate(this.value)"/> Daily exercise</br>
       <input type="checkbox" name="goodhabit" value="vegetarian" onchange="calculate(this.value)"/> Vegetarian</br>
     </form>
-    </div>
-
-    <div>
-    <h2>Bad habits</h2>
-    <form id="badhabit">
+    
+    <h2>Bad habits?</h2>
+    <form >
       <input type="checkbox" name="badhabit" value="smoking" onchange="calculate(this.value)" /> Smoking</br>
       <input type="checkbox" name="badhabit" value="alcohol" onchange="calculate(this.value)"/> Consumption of alcohol</br>
       <input type="checkbox" name="badhabit" value="drugs" onchange="calculate(this.value)"/> Drugs</br>
     </form>
+    <p id="alert"></p>
+    <button onclick="showResult()">Show result</button>
     </div>
+    </section>
 
     <div id="confirm">
-      <button type="button" onclick="calculate()">Calculate your insurance score</button>
-      <p id="alert"></p>
+      <b><h2 id="result"></h2></b>
+      <p>Enter your email below and press "Get a quote" to get more details from us.</p>
+      <textarea type="email" id="email" placeholder="Enter your email here" onchange="quote(this.value)"></textarea>
+      <br>
+      <button id="quote" onclick="quote()"><a href="index2.html">Get a quote</a></button>
     </div>
-    <div>
-    <p id="result"></p>
-    </div>
+    <footer>Copyright by Insurance4Life 2022</footer>
+    
     <script src="script.js"></script>
   </body>
 </html>

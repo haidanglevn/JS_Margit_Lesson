@@ -1,8 +1,96 @@
 * {
-  background: black;
-  color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  width: 100vw;
   display: grid;
+  padding: 0px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+header {
+  background-image: url("https://images.unsplash.com/photo-1514415008039-efa173293080?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80");
+  background-position: center;
+  background-size: cover;
+  background-origin: border-box;
+  height: max-content;
+  height: 50vh;
+  width: 100vw;
+  margin: 0;
+}
+h1,
+h2,
+p,
+form,
+button {
+  padding: 10px;
+}
+
+#hero {
+  padding-top: 10vh;
+  padding-left: 30px;
+}
+
+#form {
+  display: grid;
+  grid-template-columns: 40vw 60vw;
+  grid-template-areas:
+    "age condition"
+    "age condition"
+    "age condition";
+
+  text-align: left;
+}
+
+#age {
+  background-color: #a5f1e9;
+  padding: 2vw;
+  border: 1px solid;
+}
+#condition {
+  background-color: #e1ffee;
+  padding: 2vw;
+  border: 1px solid;
+}
+#confirm {
+  visibility: hidden;
+  background-color: #ffeeaf;
+  text-align: center;
+  padding-bottom: 2vh;
+}
+
+#email,
+#customerName {
+  width: 30vw;
+  height: 5vh;
+}
+
+button {
+  font-size: 20px;
+  background-color: #7fbcd2;
+  color: white;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  height: 2vh;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#thankyou {
+  background-color: #ffeeaf;
+  text-align: center;
+  height: 48vh;
+  padding-top: 10vh;
+}
+
+#alert {
+  color: red;
 }
