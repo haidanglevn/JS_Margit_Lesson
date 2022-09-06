@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Linear gradient generator</title>
 </head>
 <body>
@@ -14,45 +15,61 @@
     <div id="color">     
         <div class="color-wrapper" id="color-wrapper1">
             <label for="color1" hidden></label>
-            <input type="color" id="color1" onchange="wrapperColor(this.value)" value="red"></input>
+            <input type="color" id="color1" onchange="gradient()" value="#ff0000"></input>
         </div>
 
         <div class="color-wrapper" id="color-wrapper2">
             <label for="color2" hidden></label>
-            <input type="color" id="color2" onchange="wrapperColor(this.value)" value="blue"></input>
+            <input type="color" id="color2" onchange="gradient()" value="#ffff00"></input>
         </div>
     </div>
 
-
-
+<h2>Direction</h2>
 <form id="direction">
-    <h2>Direction</h2>
-    <label for="up">Up</label>
-    <input type="radio" name="direction" id="up" value="up"/>
-    <label for="upleft">Up Left</label>
-    <input type="radio" name="direction" id="upleft" value="upleft"/>
-    <label for="upright">Up Right</label>
-    <input type="radio" name="direction" id="upright" value="upright"/>
-    <label for="left">Left</label>
-    <input type="radio" name="direction" id="left" value="left"/>
-    <label for="right">Right</label>
-    <input type="radio" name="direction" id="right" value="right"/>
-    <label for="down">Down</label>
-    <input type="radio" name="direction" id="down" value="down"/>
-    <label for="downleft">Down left</label>
-    <input type="radio" name="direction" id="downleft" value="downleft"/>
-    <label for="downright">Down right</label>
-    <input type="radio" name="direction" id="downright" value="downright"/>
+    <div id="top" class="grid-item">
+        <label for="up"></label>
+        <input type="radio" name="direction" class="big" value="to top" onclick="gradient(this.value)" checked/>
+    </div>
+    <div id="right" class="grid-item">
+        <label for="right"></label>
+        <input type="radio" name="direction" class="big" value="to right" onclick="gradient(this.value)"/>
+    </div>
+    <div id="bottom" class="grid-item">
+        <label for="down"></label>
+        <input type="radio" name="direction" class="big" value="to bottom" onclick="gradient(this.value)"/>
+    </div>
+    <div id="left" class="grid-item">
+        <label for="left"></label>
+        <input type="radio" name="direction" class="big" value="to left" onclick="gradient(this.value)"/>
+    </div>
+    <div id="topright" class="grid-item">
+        <label for="upright"></label>
+        <input type="radio" name="direction" class="big" value="to top right" onclick="gradient(this.value)"/>
+    </div>
+    <div id="bottomright" class="grid-item">
+        <label for="downright"></label>
+        <input type="radio" name="direction" class="big" value="to bottom right" onclick="gradient(this.value)"/>
+    </div>
+    <div id="bottomleft" class="grid-item">
+        <label for="downleft"></label>
+        <input type="radio" name="direction" class="big" value="to bottom left" onclick="gradient(this.value)"/>
+    </div>
+    <div id="topleft" class="grid-item">
+        <label for="upleft"></label>
+        <input type="radio" name="direction" class="big" value="to top left" onclick="gradient(this.value)"/>
+    </div>
 </form>
 <div>
     <h2>CSS code:</h2>
-    <p id="cssCode"></p>
+    <p id="cssCode">linear-gradient(to top, #ff0000, #ffff00)</p>
 </div>
 </div>
-<div id="result">
 
+<div id="result">
+  
 </div>
 <script src="script.js"></script>
+<footer>Updated by Dang Le on Sep 6th 2022</footer>
 
 </body>
 </html>
