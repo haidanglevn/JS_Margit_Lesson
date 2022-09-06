@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Linear gradient generator</title>
+</head>
+<body>
+ <div id="option">
+    <h1>Linear gradient generator</h1>
+    <h2>Colors</h2>
+    <div id="color">     
+        <div class="color-wrapper" id="color-wrapper1">
+            <label for="color1" hidden></label>
+            <input type="color" id="color1" onchange="wrapperColor(this.value)" value="red"></input>
+        </div>
+
+        <div class="color-wrapper" id="color-wrapper2">
+            <label for="color2" hidden></label>
+            <input type="color" id="color2" onchange="wrapperColor(this.value)" value="blue"></input>
+        </div>
+    </div>
+
+
+
+<form id="direction">
+    <h2>Direction</h2>
+    <label for="up">Up</label>
+    <input type="radio" name="direction" id="up" value="up"/>
+    <label for="upleft">Up Left</label>
+    <input type="radio" name="direction" id="upleft" value="upleft"/>
+    <label for="upright">Up Right</label>
+    <input type="radio" name="direction" id="upright" value="upright"/>
+    <label for="left">Left</label>
+    <input type="radio" name="direction" id="left" value="left"/>
+    <label for="right">Right</label>
+    <input type="radio" name="direction" id="right" value="right"/>
+    <label for="down">Down</label>
+    <input type="radio" name="direction" id="down" value="down"/>
+    <label for="downleft">Down left</label>
+    <input type="radio" name="direction" id="downleft" value="downleft"/>
+    <label for="downright">Down right</label>
+    <input type="radio" name="direction" id="downright" value="downright"/>
+</form>
+<div>
+    <h2>CSS code:</h2>
+    <p id="cssCode"></p>
+</div>
+</div>
+<div id="result">
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
