@@ -49,9 +49,10 @@ h2 {
 #option {
   background-color: #60103a;
   color: #f7e1d3;
-  width: 35vw;
   text-align: center;
   padding: 0;
+  width: 35vw;
+  min-height: 97vh;
 }
 
 /* result  */
@@ -59,7 +60,7 @@ h2 {
   background-color: white;
   background-image: linear-gradient(to top, #ff0000, #ffff00);
   width: 65vw;
-  height: 97vh;
+  min-height: 97vh;
 }
 /* icon */
 #top {
@@ -144,7 +145,7 @@ footer {
   text-align: center;
   color: aliceblue;
   grid-area: footer;
-  height: 3vh;
+  min-height: 3vh;
 }
 
 @media screen and (max-width: 620px) {
@@ -158,8 +159,17 @@ footer {
 @media screen and (max-width: 420px) {
   #option {
     width: 60vw;
+    height: auto;
   }
   #result {
     width: 40vw;
+    height: auto;
+  }
+  body {
+    font-size: 12px;
+  }
+  h1,
+  h2 {
+    font-size: 20px;
   }
 }
