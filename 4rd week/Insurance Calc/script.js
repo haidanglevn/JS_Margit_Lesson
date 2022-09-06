@@ -1,6 +1,8 @@
 // age
 let age, score;
-let score1, score2, score3;
+let score1 = 0;
+let score2 = 0;
+let score3 = 0;
 
 let conditionScore;
 
