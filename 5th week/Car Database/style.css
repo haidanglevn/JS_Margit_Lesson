@@ -1,0 +1,28 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
+}
+
+label {
+  display: inline-block;
+  width: 10vw;
+  text-align: left;
+  margin-right: 30px;
+}
+
+button {
+  margin: 20px;
+}
+table {
+  padding: 20px;
+}
+tr,
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
+th {
+  background: rgb(13, 23, 205);
+  color: white;
+}

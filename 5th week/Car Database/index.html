@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Car "Database"</title>
+  </head>
+  <body>
+    <div id="insertCar">
+      <h1>Insert car data</h1>
+      <div>
+        <label for="license">License Number</label>
+        <textarea id="license" onchange="addCar(this.value)"></textarea>
+      </div>
+      <div>
+        <label for="maker">Car maker</label>
+        <textarea id="maker"></textarea>
+      </div>
+      <div>
+        <label for="model">Car model</label>
+        <textarea id="model"></textarea>
+      </div>
+      <div>
+        <label for="owner">Car owner</label>
+        <textarea id="owner"></textarea>
+      </div>
+      <div>
+        <label for="price">Car price</label>
+        <textarea type="number" id="price"></textarea>
+      </div>
+      <div>
+        <label for="color">Car color</label>
+        <textarea id="color"></textarea>
+      </div>
+      <div>
+        <button onclick="addCar()">Add car</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="delRow()">Delete last rows</button>
+      </div>
+    </div>
+    <div id="database">
+      <table id="table">
+        <tr>
+          <th>LICENSE</th>
+          <th>MAKER</th>
+          <th>MODEL</th>
+          <th>OWNER</th>
+          <th>PRICE</th>
+          <th>COLOR</th>
+        </tr>
+        <tr>
+          <td>ABC-123</td>
+          <td>Toyota</td>
+          <td>Corolla</td>
+          <td>Dang</td>
+          <td>10000€</td>
+          <td>black</td>
+        </tr>
+        <tr>
+          <td>TRA-432</td>
+          <td>Nissan</td>
+          <td>Qashqai</td>
+          <td>John</td>
+          <td>7500€</td>
+          <td>red</td>
+        </tr>
+        <tr>
+          <td>IOO-982</td>
+          <td>Mercedes-Benz</td>
+          <td>Vito</td>
+          <td>Ashley</td>
+          <td>15000€</td>
+          <td>white</td>
+        </tr>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
