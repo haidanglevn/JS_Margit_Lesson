@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Test site</title>
+  </head>
+  <body>
+    <h1>this is a test site</h1>
+    <h1>Insert car data</h1>
+      <div>
+        <label for="license">License Number</label>
+        <textarea id="license" ></textarea>
+      </div>
+      <div>
+        <label for="maker">Car maker</label>
+        <textarea id="maker"></textarea>
+      </div>
+      <div>
+        <label for="model">Car model</label>
+        <textarea id="model"></textarea>
+      </div>
+      <div>
+        <label for="owner">Car owner</label>
+        <textarea id="owner"></textarea>
+      </div>
+      <div>
+        <label for="price">Car price</label>
+        <textarea type="number" id="price"></textarea>
+      </div>
+      <div>
+        <label for="color">Car color</label>
+        <textarea id="color"></textarea>
+      </div>
+      <div>
+        <button onclick="addCar()">Add car</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="delRow()">Delete last rows</button>
+        <button onclick="builtTable()">Built table</button>
+      </div>
+    </div>
+
+
+    <table table-striped>
+      <tr id="headrow">
+        <th>LICENSE</th>
+        <th>MAKER</th>
+        <th>MODEL</th>
+        <th>OWNER</th>
+        <th>PRICE</th>
+        <th>COLOR</th>
+      </tr>
+      <tbody id="table"></tbody>
+    </table>
+    <script src="test.js"></script>
+  </body>
+</html>
