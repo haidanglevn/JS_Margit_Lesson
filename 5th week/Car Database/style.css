@@ -19,7 +19,6 @@ body {
   grid-template-areas:
     "search search"
     "insertCar database";
-  background-color: white;
 }
 
 #search {
@@ -40,6 +39,8 @@ body {
 }
 #database {
   grid-area: database;
+  margin: 15px;
+  padding: 5px;
 }
 
 label {
@@ -57,6 +58,7 @@ button {
 }
 table {
   padding: 20px;
+  width: 100%;
 }
 tr,
 th,
