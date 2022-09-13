@@ -11,45 +11,48 @@
     <div id="search">
       <h1>Search car by license number</h1>
       <div>
-        <label>License number</label>
-        <textarea id="searchLicense"></textarea>
+        <label for="searchLicense">License number: </label>
+        <input id="searchLicense"></input>
         <button onclick="search()">Search</button>
         <p id="searchResult"></p>
       </div>
     </div>
     <div id="insertCar">
       <h1>Insert car data</h1>
+      <form>
       <div>
         <label for="license">License Number</label>
-        <textarea id="license"></textarea>
+        <input id="license"></input>
       </div>
       <div>
         <label for="maker">Car maker</label>
-        <textarea id="maker"></textarea>
+        <input id="maker"></input>
       </div>
       <div>
         <label for="model">Car model</label>
-        <textarea id="model"></textarea>
+        <input id="model"></input>
       </div>
       <div>
         <label for="owner">Car owner</label>
-        <textarea id="owner"></textarea>
+        <input id="owner"></input>
       </div>
       <div>
         <label for="price">Car price</label>
-        <textarea type="number" id="price"></textarea>
+        <input type="number" id="price"></input>
       </div>
       <div>
         <label for="color">Car color</label>
-        <textarea id="color"></textarea>
+        <input id="color"></input>
       </div>
+      </form>
       <div>
         <button onclick="addCar()">Add car</button>
-        <button onclick="reset()">Reset</button>
-        <button onclick="delRow()">Delete last rows</button>
+        <button onclick="reset()">Reset</button><br />
+        <button onclick="delRow()">Delete last added car</button>
       </div>
     </div>
     <div id="database">
+      <h1>Car "Database"</h1>
       <table type="table-striped">
         <tr>
           <th>LICENSE</th>

@@ -84,5 +84,5 @@ const reset = () => {
 };
 
 const delRow = () => {
-  document.getElementById("table").deleteRow(-1);
+  document.getElementById("carTable").deleteRow(-1);
 };

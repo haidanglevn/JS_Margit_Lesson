@@ -2,6 +2,45 @@
   font-family: "Courier New", Courier, monospace;
   box-sizing: border-box;
 }
+html {
+  background-color: lightblue;
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "search search"
+    "insertCar database";
+  background-color: white;
+}
+
+#search {
+  grid-area: search;
+  margin: 0 20vw;
+  padding: 20px;
+  text-align: center;
+  height: 40vh;
+  background-color: aqua;
+}
+
+#insertCar {
+  grid-area: insertCar;
+  background-color: bisque;
+  margin: 15px;
+  padding: 5px;
+  text-align: center;
+}
+#database {
+  grid-area: database;
+}
 
 label {
   display: inline-block;
@@ -9,9 +48,12 @@ label {
   text-align: left;
   margin-right: 30px;
 }
-
 button {
-  margin: 20px;
+  margin: 15px;
+  color: white;
+  background-color: rgb(13, 23, 205);
+  font-size: 1rem;
+  text-align: left;
 }
 table {
   padding: 20px;
@@ -25,4 +67,8 @@ td {
 th {
   background: rgb(13, 23, 205);
   color: white;
+}
+input {
+  font-size: 20px;
+  width: 30%;
 }
