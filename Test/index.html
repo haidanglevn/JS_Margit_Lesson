@@ -4,56 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <script
+      src="https://kit.fontawesome.com/9226bb3867.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Test site</title>
   </head>
   <body>
-    <h1>this is a test site</h1>
-    <h1>Insert car data</h1>
-      <div>
-        <label for="license">License Number</label>
-        <textarea id="license" ></textarea>
+    <header>
+      <div id="navbar">
+        <a id="logo" href="#home"><h1>DANG LE</h1></a>
+        <nav>
+          <a href="#first">First</a>
+          <a href="#second">Second</a>
+          <a href="#third">Third</a>
+          <span class="material-symbols-outlined"> menu </span>
+        </nav>
       </div>
-      <div>
-        <label for="maker">Car maker</label>
-        <textarea id="maker"></textarea>
-      </div>
-      <div>
-        <label for="model">Car model</label>
-        <textarea id="model"></textarea>
-      </div>
-      <div>
-        <label for="owner">Car owner</label>
-        <textarea id="owner"></textarea>
-      </div>
-      <div>
-        <label for="price">Car price</label>
-        <textarea type="number" id="price"></textarea>
-      </div>
-      <div>
-        <label for="color">Car color</label>
-        <textarea id="color"></textarea>
-      </div>
-      <div>
-        <button onclick="addCar()">Add car</button>
-        <button onclick="reset()">Reset</button>
-        <button onclick="delRow()">Delete last rows</button>
-        <button onclick="builtTable()">Built table</button>
-      </div>
-    </div>
+    </header>
 
+    <section id="first">
+      <h1>First</h1>
+      <button onclick="openModal()">Click me!</button>
+      <div id="modal">
+        <span class="close">&times;</span>
+        <h1>Modal example</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi eum
+          laudantium, quam deserunt aperiam suscipit! Placeat, praesentium. Quo
+          vel eaque repudiandae incidunt rem maiores molestias architecto
+          possimus excepturi! Explicabo, consequuntur!
+        </p>
+      </div>
+    </section>
 
-    <table table-striped>
-      <tr id="headrow">
-        <th>LICENSE</th>
-        <th>MAKER</th>
-        <th>MODEL</th>
-        <th>OWNER</th>
-        <th>PRICE</th>
-        <th>COLOR</th>
-      </tr>
-      <tbody id="table"></tbody>
-    </table>
+    <section id="second">
+      <h1>Second</h1>
+    </section>
+
+    <section id="third">
+      <h1>Third</h1>
+    </section>
+    <footer>
+      <p>Copyright 2022</p>
+    </footer>
     <script src="test.js"></script>
   </body>
 </html>

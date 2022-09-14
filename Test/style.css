@@ -1,28 +1,70 @@
 * {
-  font-family: "Courier New", Courier, monospace;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-
-label {
-  display: inline-block;
-  width: 10vw;
-  text-align: left;
-  margin-right: 30px;
+html {
+  background-color: green;
+}
+.content {
+  padding: 16px;
 }
 
-button {
-  margin: 20px;
+body {
+  font-family: "Courier New", Courier, monospace;
 }
-table {
+header {
+  background-color: green;
+  overflow: hidden; /* use with float to stop overflow from lower parts */
+  min-height: 10vh;
   padding: 20px;
 }
-tr,
-th,
-td {
-  border: 1px solid black;
-  padding: 10px;
-}
-th {
-  background: rgb(13, 23, 205);
+header a {
   color: white;
+  text-decoration: none;
+}
+nav {
+  float: right;
+}
+#logo {
+  float: left;
+}
+section {
+  height: 80vh;
+  width: 100vw;
+  padding: 20px;
+}
+#first {
+  background-color: yellow;
+}
+#second {
+  background-color: aqua;
+}
+#third {
+  background-color: pink;
+}
+footer {
+  height: auto;
+  background-color: black;
+  color: white;
+}
+#modal {
+  /*   visibility: hidden;
+ */
+}
+
+/* this sticky class is toggled by js */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: green;
+  overflow: hidden; /* use with float to stop overflow from lower parts */
+  height: 10vh;
+  padding: 16px;
+  left: 0;
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }
