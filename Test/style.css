@@ -36,11 +36,12 @@ p {
 header {
   padding-top: 5vh;
   background-color: green;
-  height: 15vh;
+  height: 5vh;
   display: flex;
   justify-content: space-between;
   text-align: justify;
   font-size: 20px;
+  padding: 0 20px 0 20px;
 }
 header a {
   color: white;
@@ -48,6 +49,7 @@ header a {
 }
 nav {
   float: right;
+  padding: 10px;
 }
 #logo {
   float: left;
@@ -64,7 +66,13 @@ section {
   padding: 20px;
   scroll-margin-top: 15vh;
 }
-#first {
+#hero {
+  background-image: url("https://images.unsplash.com/photo-1594729095022-e2f6d2eece9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80");
+  background-color: black;
+  color: white;
+  min-height: 50vh;
+}
+#projects {
   background-color: yellow;
 }
 #second {
@@ -72,6 +80,37 @@ section {
 }
 #third {
   background-color: pink;
+}
+/* hero */
+#hero-img {
+  float: right;
+  height: 40vh;
+  width: 40vw;
+}
+#hero {
+  padding: 150px 50px;
+}
+/* project */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 70vh;
+  align-items: flex-start;
+}
+.project-card {
+  border-radius: 5px;
+  min-width: 200px;
+  height: 50px;
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+img {
+  width: 170px;
+  height: 200px;
+  border-radius: 5px;
 }
 
 footer {
@@ -99,11 +138,10 @@ footer {
   width: 100%;
   background-color: green;
   overflow: hidden; /* use with float to stop overflow from lower parts */
-  height: 10vh;
-  padding: 16px;
+  height: 5vh;
   left: 0;
 }
-
+/* modal box */
 #modal {
   display: none;
   position: fixed;
