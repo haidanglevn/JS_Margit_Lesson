@@ -151,7 +151,7 @@ footer {
   width: 100%; /* Full width of screen */
   height: 100%; /* also full height */
   overflow: scroll; /* allow scroll for longer modal content */
-  padding: 100px;
+  padding: 15vw;
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 #modal-content {
@@ -171,7 +171,7 @@ footer {
 
 /* MOBILE */
 @media (max-width: 800px) {
-  nav a {
+  nav {
     display: none;
   }
 
@@ -180,12 +180,22 @@ footer {
     background-color: transparent;
     color: white;
     border: none;
+    width: 40px;
+    height: 37.5px;
   }
-  nav.responsive a {
+  #mob_button:hover {
+    background-color: gray;
+  }
+
+  .responsive {
+    background-color: green;
     display: block;
-    position: absolute;
-    left: 0;
-    top: 85px;
-    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 37.5px;
+    width: 30vw;
+    height: 20vh;
+    text-align: right;
+    padding: 20px;
   }
 }

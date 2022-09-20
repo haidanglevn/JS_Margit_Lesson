@@ -24,27 +24,25 @@
     <header id="header">
       <a id="logo" href="#home"><h1>DANG LE</h1></a>
       <div id="navbar">
-        <nav class="responsive">
+        <nav id="navbar-links" class="responsive">
           <a href="#projects">Projects</a>
           <a href="#about-me">AboutMe</a>
           <a href="#third">Third</a>
           <a href="#contact">Contact</a>
-          <button id="mob_button" onclick="mobMenu">
-            <span class="material-symbols-outlined"> menu </span>
-          </button>
         </nav>
+        <button type="button" id="mob_button" onclick="mobMenu()">
+          <span class="material-symbols-outlined"> menu </span>
+        </button>
       </div>
     </header>
     <main>
-
       <section id="hero">
         <h1>WELCOME TO MY PORTFOLIO</h1>
         <button class="btn"><a href="#projects">View my projects</a></button>
-        
       </section>
 
       <section id="projects">
-        <h2>Projects</h2>
+        <!-- <h2>Projects</h2>
         <div class="project-container">
 
         <div class="project-card">
@@ -92,10 +90,9 @@
             <h4>Project 1</h4>
             <p>I did something</p>
           </div>
-        </div>
-       
-        
-        <!-- <button class="btn" onclick="openModal()">Click me!</button>
+        </div> -->
+
+        <button class="btn" onclick="openModal()">Click me!</button>
         <div id="modal">
           <div id="modal-content">
             <button class="close" onclick="closeModal()">&times;</button>
@@ -106,12 +103,16 @@
               praesentium. Quo vel eaque repudiandae incidunt rem maiores
               molestias architecto possimus excepturi! Explicabo, consequuntur!
             </p>
-            
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
+              pariatur odit nihil repellendus a sequi, nam eaque autem
+              architecto rem eum fugiat commodi minima blanditiis quo enim
+              dolorem veniam? Obcaecati.
+            </p>
           </div>
-        </div> -->
+        </div>
       </section>
 
-   
       <section id="about-me">
         <h2>About Me</h2>
       </section>

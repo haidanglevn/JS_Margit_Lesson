@@ -33,12 +33,11 @@ const closeModal = () => {
   body.style.overflow = "auto";
 };
 
-let navbar = document.getElementById("navbar");
-
 const mobMenu = () => {
-  if (navbar.classList.contains("responsive")) {
-    navbar.classList.remove("responsive");
-  }
+  let navbar = document.getElementById("navbar-links");
+  console.log("button pressed");
+  console.log("display: ", navbar.classList.contains("responsive"));
+  navbar.classList.toggle("responsive");
 };
 
-mobButton.addEventListener("click", mobMenu);
+document.getElementById("mob_button").addEventListener("click", mobMenu());
