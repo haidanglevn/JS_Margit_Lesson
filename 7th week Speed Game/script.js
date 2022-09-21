@@ -22,7 +22,6 @@ const newRound = () => {
     endGame();
   } else {
     scored = false;
-    fsdsfsd;
     random1 = Math.floor(Math.random() * 3);
     console.log("random number is ", random1);
     /* make sure the next number is different then the last */
