@@ -3,23 +3,42 @@ const stopButton = document.getElementById("stop");
 const circles = document.querySelectorAll(".circle");
 const result = document.getElementById("result");
 let score = 0;
-let gameRunning, random, chosen, i;
+let random = 0;
+let gameRunning, chosen, i;
+let scored = false;
+let firstRound = true;
 
 /* start the game */
 const startGame = () => {
   document.getElementById("title").innerHTML = "CATCH THE EVIL PUMPKIN !!!";
   console.log("game started");
-  gameRunning = setInterval(randomNumber, 1000);
+  gameRunning = setInterval(newRound, 1000);
 };
 
 /* get random number */
-const randomNumber = () => {
-  random = Math.floor(Math.random() * 3);
-  console.log("random number is ", random);
-  /* change background */
-  console.log("click circle ", circles[`${random + 1}`], "now");
-  chosen = circles[random];
-  chosen.classList.add("active");
+const newRound = () => {
+  if (firstRound == false && scored == false) {
+    endGame();
+  } else {
+    scored = false;
+    random1 = Math.floor(Math.random() * 3);
+    console.log("random number is ", random1);
+    /* make sure the next number is different then the last */
+    while (random1 == random) {
+      random1 = Math.floor(Math.random() * 3);
+    }
+    random = random1;
+
+    /* change background */
+    circles.forEach((circle) => {
+      if (circle.classList.contains("active")) {
+        circle.classList.remove("active");
+      }
+    });
+    chosen = circles[random];
+    chosen.classList.add("active");
+  }
+  firstRound = false;
 };
 
 /* find which circle was clicked and check if right circle was clicked */
@@ -28,11 +47,11 @@ circles.forEach((circle, i) => {
 });
 
 const clickCircle = (i) => {
-  console.log("circle clicked was: ", i + 1);
   if (random == i) {
     score += 1;
     console.log("score =", score);
-    chosen.classList.remove("active");
+    scored = true;
+    /* add clicked pumpkin asset */
   } else {
     console.log("wrong");
     endGame();
