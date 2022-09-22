@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: "Courier New", Courier, monospace;
-  background-image: url(assets/background_halloween.jpeg);
+  background-image: url(assets/background_halloween2.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -26,6 +26,39 @@ section,
 footer {
   padding: 2rem;
   margin: 0;
+}
+
+.hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.heart {
+  background-image: url(assets/pumpkin-heart.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  flex: 25%;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+.heart.ded {
+  background-image: url(assets/pumpkin-heart-ded.png);
+}
+
+.setting {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url(assets/setting.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
 
 .circles {
@@ -54,7 +87,14 @@ footer {
 }
 
 .circle.active {
-  background-image: url(assets/pumpkin-dark.png);
+  background-image: url(assets/pumpkin-dark.jpeg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.circle.glow {
+  background-image: url(assets/pumpkin-glow.png);
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
