@@ -30,7 +30,7 @@ const newRound = () => {
     random1 = Math.floor(Math.random() * 3);
   }
   random = random1;
-  /* change background */
+
   circles.forEach((circle) => {
     if (
       circle.classList.contains("active") ||
@@ -40,6 +40,8 @@ const newRound = () => {
       circle.classList.remove("glow");
     }
   });
+
+  /* change background */
   chosen = circles[random];
   chosen.classList.add("active");
   noClick();
