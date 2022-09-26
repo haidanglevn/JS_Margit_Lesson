@@ -54,11 +54,11 @@ const newRound = () => {
   console.log(`-----------ROUND ${round}------------`);
 
   /* get random number */
-  random1 = Math.floor(Math.random() * 3);
+  random1 = Math.floor(Math.random() * 4);
   console.log("random number is ", random1);
   /* make sure the next number is different then the last */
   while (random1 == random) {
-    random1 = Math.floor(Math.random() * 3);
+    random1 = Math.floor(Math.random() * 4);
   }
   random = random1;
   /* turn off classes after every round */
@@ -81,9 +81,9 @@ const newRound = () => {
   scored = false;
   document.getElementById("lives").innerHTML = lives;
   console.log("Health: ", lives);
-  if (lives <= 0) {
+  /* if (lives <= 0) {
     endGame();
-  }
+  } */
 };
 
 /* find which circle was clicked and check if right circle was clicked */
@@ -92,6 +92,7 @@ circles.forEach((circle, i) => {
 });
 
 const clickCircle = (i) => {
+  console.log(i);
   if (random == i) {
     score += 1;
     console.log("Right circle clicked, score =", score);
