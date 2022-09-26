@@ -21,17 +21,50 @@
     <title>Halloween Speed Game</title>
   </head>
   <body>
+    <p id="top-dif">Difficulty: <span id="difficulty">Medium</span></p>
+    <div id="setting-logo"></div>
+    <section id="setting">
+      <h1>SETTINGS</h1>
+      <h2>Choose your level of difficulty:</h2>
+      <form>
+        <input
+          type="radio"
+          id="dif1"
+          name="dif-setting"
+          onchange="difficultyChange(this.value)"
+          value="easy"
+        />
+        <label for="dif1">Easy</label>
+        <input
+          type="radio"
+          id="dif2"
+          name="dif-setting"
+          onchange="difficultyChange(this.value)"
+          value="medium"
+          checked
+        />
+        <label for="dif2">Medium</label>
+        <input
+          type="radio"
+          id="dif3"
+          name="dif-setting"
+          onchange="difficultyChange(this.value)"
+          value="hard"
+        />
+        <label for="dif3">Hard</label>
+      </form>
+    </section>
     <section id="playground">
       <div class="hearts">
-        <div class="heart">1</div>
-        <div class="heart">2</div>
-        <div class="heart">3</div>
-        <div class="heart">4</div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
       </div>
-      <div class="setting"></div>
 
       <h1>SPEED GAME</h1>
-      <h2>Your score is: <span id="score">0</span></h2>
+
+      <p>Your score is: <span id="score">0</span></p>
       <p>Your lives remaining: <span id="lives">4</span></p>
       <p id="title">Press "start game" when you are ready</p>
 
