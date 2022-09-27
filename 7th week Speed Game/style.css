@@ -81,6 +81,7 @@ footer {
   background-size: cover;
 }
 .circle.glow {
+  border-radius: 10%;
   background-image: url(assets/pumpkin-glow.png);
   background-color: transparent;
   background-repeat: no-repeat;
@@ -128,13 +129,31 @@ button {
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width of screen */
-  height: 100%; /* also full height */
-  overflow: scroll; /* allow scroll for longer modal content */
-  padding: 15vw;
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  padding: 15vw 25vw 0 25vw;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 #modal-content {
   background-color: white;
   padding: 20px;
+  border-radius: 10%;
+}
+
+.close {
+  float: right;
+  position: relative;
+  top: 0%;
+  right: 0;
+}
+
+.result-img {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  background-image: url(assets/cat-judging.png);
+  background-size: cover;
+  margin-top: 30px;
+  left: 32%;
 }

@@ -21,9 +21,15 @@
     <title>Halloween Speed Game</title>
   </head>
   <body>
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
     <p id="top-dif">Difficulty: <span id="difficulty">Medium</span></p>
     <div id="setting-logo"></div>
-    <section id="setting">
+    <section id="setting" style="display: none">
       <h1>SETTINGS</h1>
       <h2>Choose your level of difficulty:</h2>
       <form>
@@ -54,16 +60,9 @@
         <label for="dif3">Hard</label>
       </form>
     </section>
-    <section id="playground">
-      <div class="hearts">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-      </div>
 
+    <section id="playground" style="display: block">
       <h1>SPEED GAME</h1>
-
       <p>Your score is: <span id="score">0</span></p>
       <p>Your lives remaining: <span id="lives">4</span></p>
       <p id="title">Press "start game" when you are ready</p>
@@ -79,9 +78,13 @@
 
       <div id="modal">
         <div id="modal-content">
-          <p>GAME OVER!</p>
+          <div>
+            <h1>GAME OVER!</h1>
+            <button class="close" onclick="closeModal()">&times;</button>
+          </div>
+
           <p id="result"></p>
-          <button class="close" onclick="closeModal()">&times;</button>
+          <div class="result-img"></div>
         </div>
       </div>
     </section>

@@ -6,13 +6,13 @@ const result = document.getElementById("result");
 const hearts = document.querySelectorAll(".heart");
 let score = 0;
 let random = 0;
-let lives = 4;
 let dedCount = 0;
 let gameRunning, chosen, i, random1;
 let scored = false;
 let firstRound = true;
 let round = 0;
 let pace = 900;
+let lives = 4;
 
 const settingToggle = () => {
   let settingpage = document.getElementById("setting");
@@ -47,16 +47,17 @@ const startGame = () => {
   console.log("game started");
   console.log("pace = ", pace);
   gameRunning = setInterval(newRound, pace);
+  circles.forEach((circle, i) => {
+    circle.addEventListener("click", () => clickCorrect(i));
+  });
 };
 
 const newRound = () => {
   round += 1;
   console.log(`-----------ROUND ${round}------------`);
-
   /* get random number */
   random1 = Math.floor(Math.random() * 4);
   console.log("random number is ", random1);
-  /* make sure the next number is different then the last */
   while (random1 == random) {
     random1 = Math.floor(Math.random() * 4);
   }
@@ -81,24 +82,23 @@ const newRound = () => {
   scored = false;
   document.getElementById("lives").innerHTML = lives;
   console.log("Health: ", lives);
-  /* if (lives <= 0) {
+  if (lives <= 0) {
     endGame();
-  } */
+  }
 };
 
 /* find which circle was clicked and check if right circle was clicked */
-circles.forEach((circle, i) => {
-  circle.addEventListener("click", () => clickCircle(i));
-});
+/* circles.forEach((circle, i) => {
+  circle.addEventListener("click", () => clickCorrect(i));
+}); */
 
-const clickCircle = (i) => {
+const clickCorrect = (i) => {
   console.log(i);
   if (random == i) {
     score += 1;
-    console.log("Right circle clicked, score =", score);
+    console.log("Right circle clicked, score = ", score);
     scored = true;
     chosen.classList.add("glow");
-    /* add clicked pumpkin asset */
   } else {
     console.log("Wrong circle clicked, (-1)");
     minusLife();
@@ -126,9 +126,21 @@ const minusLife = () => {
 const endGame = () => {
   openModal();
   chosen.classList.remove("active");
-  result.textContent = `You get ${score}! Great job !!!!`;
   console.log("game ended");
+  if (score <= 10) {
+    result.textContent = `Wait, how can you only get ${score}? Come on, try harder!!!`;
+  } else if (score <= 30) {
+    result.textContent = `That's not bad, ${score} points. I bet you can do better!!!`;
+    document.querySelector(".result-img").style.backgroundImage =
+      "url('assets/mummy-surprise.png')";
+  } else {
+    result.textContent = `${score} points? Okay you're too good for this. Dial up the difficulty, maybe?`;
+    document.querySelector(".result-img").style.backgroundImage =
+      "url('assets/zombie-wow.png')";
+  }
+
   clearInterval(gameRunning);
+  document.getElementById("title").innerHTML = "Game ended. Maybe another try?";
 };
 
 const reset = () => {
