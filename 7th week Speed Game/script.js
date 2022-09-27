@@ -50,6 +50,7 @@ const startGame = () => {
   circles.forEach((circle, i) => {
     circle.addEventListener("click", () => clickCorrect(i));
   });
+  stopButton.addEventListener("click", endGame);
 };
 
 const newRound = () => {
@@ -148,8 +149,8 @@ const reset = () => {
 };
 
 startButton.addEventListener("click", startGame);
-stopButton.addEventListener("click", endGame);
-resetButton.addEventListener("click", settingToggle);
+/* stopButton.addEventListener("click", endGame);
+ */ resetButton.addEventListener("click", settingToggle);
 
 /* Modal */
 let modal = document.getElementById("modal");

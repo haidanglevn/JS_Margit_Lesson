@@ -17,6 +17,10 @@
       src="https://kit.fontawesome.com/9226bb3867.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sancreek"
+    />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Halloween Speed Game</title>
   </head>
@@ -26,6 +30,14 @@
       <div class="heart"></div>
       <div class="heart"></div>
       <div class="heart"></div>
+    </div>
+    <div class="leaderboard">
+      <div class="attempt" id="leaderboard-title">Leaderboard</div>
+      <div class="attempt">1/Player: 100</div>
+      <div class="attempt">2/Player: 100</div>
+      <div class="attempt">3/Player: 100</div>
+      <div class="attempt">4/Player: 100</div>
+      <div class="attempt">5/Player: 100</div>
     </div>
     <p id="top-dif">Difficulty: <span id="difficulty">Medium</span></p>
     <div id="setting-logo"></div>
@@ -62,7 +74,7 @@
     </section>
 
     <section id="playground" style="display: block">
-      <h1>SPEED GAME</h1>
+      <h1>HALLOWEEN SPEED GAME</h1>
       <p>Your score is: <span id="score">0</span></p>
       <p>Your lives remaining: <span id="lives">4</span></p>
       <p id="title">Press "start game" when you are ready</p>
@@ -79,12 +91,13 @@
       <div id="modal">
         <div id="modal-content">
           <div>
-            <h1>GAME OVER!</h1>
-            <button class="close" onclick="closeModal()">&times;</button>
+            <h1 id="g-over">GAME OVER!</h1>
+            <button id="close" onclick="closeModal()">&times;</button>
           </div>
-
-          <p id="result"></p>
-          <div class="result-img"></div>
+          <div class="result-statement">
+            <p id="result"></p>
+            <div class="result-img"></div>
+          </div>
         </div>
       </div>
     </section>
