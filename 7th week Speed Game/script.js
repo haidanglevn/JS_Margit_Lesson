@@ -1,18 +1,22 @@
-const resetButton = document.getElementById("setting-logo");
+const settingButton = document.getElementById("setting-logo");
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const circles = document.querySelectorAll(".circle");
 const result = document.getElementById("result");
 const hearts = document.querySelectorAll(".heart");
-let score = 0;
+let playerName = "Player";
 let random = 0;
-let dedCount = 0;
-let gameRunning, chosen, i, random1;
-let scored = false;
-let firstRound = true;
-let round = 0;
 let pace = 900;
-let lives = 4;
+let gameRunning,
+  chosen,
+  i,
+  random1,
+  score,
+  dedCount,
+  scored,
+  firstRound,
+  round,
+  lives;
 
 const settingToggle = () => {
   let settingpage = document.getElementById("setting");
@@ -25,6 +29,7 @@ const settingToggle = () => {
     playground.style.display = "block";
   }
 };
+
 const difficultyChange = (value) => {
   if (value == "easy") {
     pace = 1200;
@@ -41,16 +46,50 @@ const difficultyChange = (value) => {
   }
 };
 
+circles.forEach((circle, i) => {
+  circle.addEventListener("click", () => clickCorrect(i));
+});
+const clickCorrect = (i) => {
+  console.log(i);
+  if (random == i) {
+    score += 1;
+    console.log("Right circle clicked, score = ", score);
+    scored = true;
+    chosen.classList.add("glow");
+  } else {
+    console.log("Wrong circle clicked, (-1)");
+    minusLife();
+  }
+  document.getElementById("score").innerHTML = score;
+};
+
+const nameChange = (value) => {
+  document.getElementById("playerName").innerHTML = value;
+  playerName = value;
+  console.log(playerName);
+};
+const resetGame = () => {
+  score = 0;
+  document.getElementById("score").innerHTML = score;
+  dedCount = 0;
+  scored = false;
+  firstRound = true;
+  round = 0;
+  lives = 4;
+  document.getElementById("lives").innerHTML = lives;
+  hearts.forEach((heart) => {
+    heart.classList.remove("ded");
+  });
+  document.querySelector(".result-img").style.backgroundImage =
+    "url('assets/cat-judging.png')";
+};
 /* start the game */
 const startGame = () => {
+  resetGame();
   document.getElementById("title").innerHTML = "CATCH THE EVIL PUMPKIN !!!";
-  console.log("game started");
+  console.log("------NEW GAME-------");
   console.log("pace = ", pace);
   gameRunning = setInterval(newRound, pace);
-  circles.forEach((circle, i) => {
-    circle.addEventListener("click", () => clickCorrect(i));
-  });
-  stopButton.addEventListener("click", endGame);
 };
 
 const newRound = () => {
@@ -88,25 +127,6 @@ const newRound = () => {
   }
 };
 
-/* find which circle was clicked and check if right circle was clicked */
-/* circles.forEach((circle, i) => {
-  circle.addEventListener("click", () => clickCorrect(i));
-}); */
-
-const clickCorrect = (i) => {
-  console.log(i);
-  if (random == i) {
-    score += 1;
-    console.log("Right circle clicked, score = ", score);
-    scored = true;
-    chosen.classList.add("glow");
-  } else {
-    console.log("Wrong circle clicked, (-1)");
-    minusLife();
-  }
-  document.getElementById("score").innerHTML = score;
-};
-
 /* losing condition: no click */
 const noClick = () => {
   if (firstRound == false && scored == false) {
@@ -125,6 +145,7 @@ const minusLife = () => {
 
 /* end the game */
 const endGame = () => {
+  clearInterval(gameRunning);
   openModal();
   chosen.classList.remove("active");
   console.log("game ended");
@@ -139,18 +160,13 @@ const endGame = () => {
     document.querySelector(".result-img").style.backgroundImage =
       "url('assets/zombie-wow.png')";
   }
-
-  clearInterval(gameRunning);
   document.getElementById("title").innerHTML = "Game ended. Maybe another try?";
-};
-
-const reset = () => {
-  window.location.reload();
+  addScore(playerName, score);
 };
 
 startButton.addEventListener("click", startGame);
-/* stopButton.addEventListener("click", endGame);
- */ resetButton.addEventListener("click", settingToggle);
+stopButton.addEventListener("click", endGame);
+settingButton.addEventListener("click", settingToggle);
 
 /* Modal */
 let modal = document.getElementById("modal");
@@ -170,5 +186,36 @@ const openModal = () => {
 const closeModal = () => {
   modal.style.display = "none";
   body.style.overflow = "auto";
-  reset();
+};
+
+/* add score to scoreboard */
+class Score {
+  constructor(playerName, score) {
+    this.playerName = playerName;
+    this.score = score;
+  }
+}
+let scoreList = [];
+const addScore = (playerName, score) => {
+  /* playerName = document.getElementById("playerName").value;
+  score = document.getElementById("score").value; */
+  let newScore = new Score(playerName, score);
+  scoreList.unshift(newScore);
+  console.table(scoreList);
+  const updateScore = () => {
+    let scoreBoard = document.querySelector(".scoreboard-content");
+    let list;
+    if (scoreList.length <= 5) {
+      list = `<div class="attempt">${scoreList[0].playerName}: ${scoreList[0].score} </div>`;
+      scoreBoard.innerHTML += list;
+    } else {
+      list = `<div class="attempt">${scoreList[4].playerName}: ${scoreList[4].score} </div>
+        <div class="attempt">${scoreList[3].playerName}: ${scoreList[3].score} </div>
+        <div class="attempt">${scoreList[2].playerName}: ${scoreList[2].score} </div>
+        <div class="attempt">${scoreList[1].playerName}: ${scoreList[1].score} </div>
+        <div class="attempt">${scoreList[0].playerName}: ${scoreList[0].score} </div>`;
+      scoreBoard.innerHTML = list;
+    }
+  };
+  updateScore();
 };

@@ -31,15 +31,14 @@
       <div class="heart"></div>
       <div class="heart"></div>
     </div>
-    <div class="leaderboard">
-      <div class="attempt" id="leaderboard-title">Leaderboard</div>
-      <div class="attempt">1/Player: 100</div>
-      <div class="attempt">2/Player: 100</div>
-      <div class="attempt">3/Player: 100</div>
-      <div class="attempt">4/Player: 100</div>
-      <div class="attempt">5/Player: 100</div>
+
+    <div class="scoreboard">
+      <div class="scoreboard-title">Last attempts</div>
+      <div class="scoreboard-content"></div>
     </div>
+
     <p id="top-dif">Difficulty: <span id="difficulty">Medium</span></p>
+    <p id="top-playerName">Name: <span id="playerName">Player</span></p>
     <div id="setting-logo"></div>
     <section id="setting" style="display: none">
       <h1>SETTINGS</h1>
@@ -71,10 +70,17 @@
         />
         <label for="dif3">Hard</label>
       </form>
+      <h2><label for="playerName">Enter your name:</label></h2>
+      <input
+        type="text"
+        name="playerName"
+        id="playerName"
+        onchange="nameChange(this.value)"
+      />
     </section>
 
     <section id="playground" style="display: block">
-      <h1>HALLOWEEN SPEED GAME</h1>
+      <h1>SPEED GAME</h1>
       <p>Your score is: <span id="score">0</span></p>
       <p>Your lives remaining: <span id="lives">4</span></p>
       <p id="title">Press "start game" when you are ready</p>
