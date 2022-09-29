@@ -5,30 +5,63 @@
 
 body {
   font-family: "Cairo", "Courier New", Courier, monospace;
-  padding: 0 10vw 0 10vw;
+  padding: 0 15vw 0 15vw;
   text-align: center;
-  background-color: linear-gradient(to right, #001eff, #ffff00);
+  background: linear-gradient(to right, #001eff, #ffff00);
 }
-.search-area {
-  height: 10vh;
+.logo {
+  background-image: url(assets/pokedex-logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100px;
   width: 100%;
 }
+
+.search-area {
+  padding: 20px;
+}
+#search-name {
+  width: 30%;
+}
 .card-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
   text-align: center;
-  gap: 10px;
+  gap: 20px;
 }
 .card {
   background-color: white;
-  border: 1px solid black;
+  border-radius: 2%;
+  width: 150px;
+  height: 230px;
 }
 .card-img {
-  width: 150px;
-  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
   background-color: white;
 }
 .card-title {
   background-color: blue;
   color: yellow;
+}
+.card-type {
+  display: flex;
+  flex-wrap: no-wrap;
+  font-size: 20px;
+}
+.grass {
+  background-color: green;
+}
+.poison {
+  background-color: purple;
+}
+.fire {
+  background-color: red;
+}
+.flying {
+  background-color: blue;
+}
+.water {
+  background-color: aqua;
 }
