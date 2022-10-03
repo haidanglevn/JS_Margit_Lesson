@@ -24,7 +24,7 @@ async function fetchData() {
     const cardType = pokemonType
       .map((pokemon) => {
         return `
-  <div class="card-type"> <p class="card-type-item ${pokemon.type.name}">${pokemon.type.name}</p></div>`;
+   <p class="card-type-item ${pokemon.type.name}">${pokemon.type.name}</p>`;
       })
       .join("");
     console.log("cardType: ", cardType);
@@ -38,7 +38,8 @@ async function fetchData() {
     console.log(cardImg);
 
     card = `<div class="card">
-          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle} ${cardType}</div>`;
+          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
+          <div class="card-type"> ${cardType}</div></div>`;
     console.log("card: ", card);
     renderCard(card);
   }
