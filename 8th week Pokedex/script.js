@@ -9,19 +9,17 @@ const renderCard = (card) => {
   console.log("done");
 };
 async function fetchData() {
-  const y = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5&offset=2");
+  const y = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0");
   const data1 = await y.json();
   pokemonData1 = data1.results;
   console.log("pokemonData1: ", pokemonData1);
-  /* const cardTitle = pokemonData1.map((pokemon) => {
-    return `<h4 class="card-title">${pokemon.name.toUpperCase()}</h4>`;
-  });
-  console.log("cardTitle: ", cardTitle); */
+
   for (pokemon of pokemonData1) {
     const z = await fetch(`${pokemon.url}`);
     const data2 = await z.json();
     let pokemonType = data2.types;
     let pokemonForms = data2.forms;
+    let pokemonImg = data2.sprites;
 
     const cardType = pokemonType
       .map((pokemon) => {
@@ -36,11 +34,13 @@ async function fetchData() {
     });
     console.log("cardTitle: ", cardTitle);
 
+    const cardImg = pokemonImg.other.dream_world.front_default;
+    console.log(cardImg);
+
     card = `<div class="card">
-          <img src="assets/pikachu_demo.png" alt="avatar" class="card-img" />${cardTitle} ${cardType}</div>`;
+          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle} ${cardType}</div>`;
     console.log("card: ", card);
     renderCard(card);
-    /* return card; */
   }
 }
 
