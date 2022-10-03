@@ -1,36 +1,87 @@
-let leaderboard = document.querySelector(".leaderboard");
-let order = 0;
-let playerName;
-let score, i;
-let scoreList = [];
-class Score {
-  constructor(playerName, point) {
-    this.playerName = playerName;
-    this.point = point;
+tagContainer = document.querySelector(".tag-container");
+taskContainer = document.querySelector(".task-list");
+modal = document.getElementById("add-tag-modal");
+
+// turn on/off the modal for add task
+const addTagModal = () => {
+  console.log("click");
+  if (modal.style.display == "none") {
+    modal.style.display = "block";
+  } else {
+    modal.style.display = "none";
+  }
+};
+const renderPage = () => {
+  // if there is no data at the start, give it a empty array
+  if (localStorage.getItem("data") == null) {
+    localStorage.setItem("data", "[]");
+  }
+  let data = JSON.parse(localStorage.getItem("data"));
+  console.log(data);
+  for (let i = 0; i <= data.length - 1; i++) {
+    taskContainer.innerHTML += `
+        <div class="task">
+          <div class="task-info">
+            <h2>${data[i].task}</h2>
+            <p class="tag">${data[i].tag}</p class="tag">
+          </div>
+          <div class="action-button">
+            <button class="done-button" onclick="doneTask()">Done</button>
+            <button class="del-button" onclick="deleteTask()">Delete</button>
+          </div>
+        </div>
+    `;
+  }
+  document.getElementById("all-count").innerHTML = data.length;
+};
+renderPage();
+
+class Task {
+  constructor(tag, task) {
+    this.tag = tag;
+    this.task = task;
   }
 }
 
-const addScore = () => {
-  playerName = document.getElementById("playerName").value;
-  point = document.getElementById("point").value;
-  let newScore = new Score(playerName, point);
-  scoreList.unshift(newScore);
-  console.table(scoreList);
-  console.log(scoreList[0].playerName);
-  const updateScore = () => {
-    let scoreBoard = document.querySelector(".leaderboard-content");
-    let list;
-    if (scoreList.length <= 5) {
-      list = `<div class="attempt">${scoreList[0].playerName}: ${scoreList[0].point} </div>`;
-      scoreBoard.innerHTML += list;
-    } else {
-      list = `<div class="attempt">${scoreList[4].playerName}: ${scoreList[4].point} </div>
-        <div class="attempt">${scoreList[3].playerName}: ${scoreList[3].point} </div>
-        <div class="attempt">${scoreList[2].playerName}: ${scoreList[2].point} </div>
-        <div class="attempt">${scoreList[1].playerName}: ${scoreList[1].point} </div>
-        <div class="attempt">${scoreList[0].playerName}: ${scoreList[0].point} </div>`;
-      scoreBoard.innerHTML = list;
-    }
+let taskList = [];
+console.table(taskList);
+const addTask = () => {
+  // add to localStorage
+  const storeData = (taskList) => {
+    let new_data = JSON.stringify(taskList);
+    console.log("New data: ", new_data);
+
+    /*    //take out the old data first
+    let old_data = JSON.parse(localStorage.getItem("data"));
+    console.log("old data: ", old_data);
+    old_data.push(new_data); */
+    // update the new data into localstorage
+    localStorage.setItem("data", new_data);
+    console.log("local storage: ", localStorage);
   };
-  updateScore();
+
+  // get value from input and put it into array of object
+  tag = document.getElementById("tag-name").value;
+  task = document.getElementById("task-name").value;
+  let taskNew = new Task(tag, task);
+  taskList.push(taskNew);
+  console.table(taskList);
+  storeData(taskList);
+
+  // update the page
+  const updatePage = () => {
+    taskContainer.innerHTML += `
+        <div class="task">
+          <div class="task-info">
+            <h2>${taskList[taskList.length - 1].task}</h2>
+            <p class="tag">${taskList[taskList.length - 1].tag}</p class="tag">
+          </div>
+          <div class="action-button">
+            <button class="done-button" onclick="doneTask()">Done</button>
+            <button class="del-button" onclick="deleteTask()">Delete</button>
+          </div>
+        </div>
+    `;
+  };
+  updatePage();
 };

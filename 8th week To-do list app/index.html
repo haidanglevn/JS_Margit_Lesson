@@ -25,20 +25,25 @@
     <title>What-to-do</title>
   </head>
   <body>
+    <div id="add-tag-modal" style="display: none">
+      <input type="text" placeholder="Enter the task" id="task-name" />
+      <input type="text" placeholder="Enter a tag name" id="tag-name" />
+      <button class="tag-name-button" onclick="addTask()">Add</button>
+    </div>
     <div class="left-bar">
       <div class="left-bar-fix">
-        <div class="left-bar-item">Today</div>
-        <div class="left-bar-item">Important</div>
+        <div class="left-bar-item title">
+          All (<span id="all-count"></span>)
+        </div>
+        <div class="left-bar-item title">Important</div>
+        <div class="left-bar-item title">
+          Done (<span id="done-count">0</span>)
+        </div>
       </div>
-      <div class="left-bar-folder">
-        <div class="left-bar-item">All tags</div>
-        <div class="left-bar-item">Housework</div>
-        <div class="left-bar-item">School Work</div>
-      </div>
-      <div class="new-folder-button">
-        <button>
+      <div class="new-task-button">
+        <button onclick="addTagModal()">
           <i class="fas fa-plus"></i>
-          New folder
+          New task
         </button>
       </div>
     </div>
@@ -48,8 +53,9 @@
         <div class="welcome">Hello, Dang!</div>
         <div class="clock">Time and date</div>
       </div>
+
       <div class="task-list">
-        <div class="task">
+        <!--  <div class="task">
           <div class="task-info">
             <h2>Clean the room</h2>
             <p class="tag">Housework</p class="tag">
@@ -59,28 +65,7 @@
             <button class="del-button">Delete</button>
           </div>
         </div>
-        <div class="task">
-          <div class="task-info">
-            <h2>Prepare foods</h2>
-            <p class="tag">Housework</p class="tag">
-          </div>
-          <div class="action-button">
-            <button class="add-button">Done</button>
-            <button class="del-button">Delete</button>
-          </div>
-        </div>
-
-        <div class="task">
-          <div class="task-info">
-            <h2>Study for Chemistry Exam</h2>
-            <p class="tag">School Work</p class="tag">
-            <p class="tag">Important</p class="tag">
-          </div>
-          <div class="action-button">
-            <button class="add-button">Done</button>
-            <button class="del-button">Delete</button>
-          </div>
-        </div>
+ -->
       </div>
     </div>
     <script src="script.js"></script>
