@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  display: grid;
+  grid-template-columns: 30vw auto;
+  font-size: 20px;
+}
+.left-bar {
+  background-color: orangered;
+  height: 100vh;
+  padding-left: 20px;
+}
+.left-bar-fix {
+  border-bottom: 1px solid black;
+  padding: 30px 0 30px 0;
+}
+.left-bar-item {
+  padding: 10px;
+}
+.new-folder-button {
+  position: absolute;
+  bottom: 30px;
+}
+
+.logo {
+  font-size: 50px;
+  border-bottom: 2px dotted green;
+}
+
+.mid-section {
+  padding: 50px;
+}
+.task-list {
+  padding-top: 30px;
+}
+.task {
+  padding: 25px;
+  background-color: orange;
+  display: grid;
+  grid-template-columns: 80% auto;
+  border-radius: 10px;
+  color: black;
+  margin-bottom: 10px;
+}
+button {
+  font-size: 20px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.add-button {
+  background-color: green;
+}
+.del-button {
+  background-color: red;
+}
