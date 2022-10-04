@@ -17,7 +17,25 @@ body {
   height: 100px;
   width: 100%;
 }
-
+#url {
+  font-size: 30px;
+  color: yellow;
+  text-shadow: 3px 3px #001eff;
+}
+button {
+  font-size: 20px;
+  padding: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  border: 5px solid gray;
+}
+button:hover {
+  background-color: #001eff;
+  color: yellow;
+  cursor: pointer;
+  border: 5px solid white;
+}
 .search-area {
   padding: 20px;
 }
@@ -35,6 +53,13 @@ body {
   border-radius: 5%;
   width: 150px;
   height: auto;
+  transition: all 1s;
+}
+.card:hover {
+  transform: translateY(-5%) scale(110%);
+}
+.card:hover .card-img {
+  background-color: yellow;
 }
 .card-img {
   width: 150px;
@@ -42,6 +67,7 @@ body {
   background-color: white;
   border-radius: 5%;
 }
+
 .card-title {
   background-color: blue;
   color: yellow;

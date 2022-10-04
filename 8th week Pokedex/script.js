@@ -4,17 +4,18 @@ let pokeLocal = [];
 let cardTitle = [];
 let typeData;
 let card, limit, offset, url, gen;
+let isLoading = false;
 content = document.querySelector(".card-container");
 
 // render card with data from local storage
 const renderCardFromLocal = (gen) => {
-  console.log(`Rendering Gen ${gen} from local storage...`);
+  console.log(`Rendering Gen ${gen} from LOCAL STORAGE...`);
   document.getElementById(
     "url"
   ).innerHTML = `There are ${limit} pokemons on Generation ${gen}`;
   document.querySelector(".card-container").innerHTML = "";
   let dataFromStorage = JSON.parse(localStorage.getItem(`pokeGen${gen}`));
-  console.log(dataFromStorage);
+
   for (pokemon of dataFromStorage) {
     pokemonImg = pokemon.img;
     pokemonName = pokemon.name;
@@ -32,16 +33,20 @@ const renderCardFromLocal = (gen) => {
           <div class="card-type"> ${cardType}</div></div>`;
     content.innerHTML += card;
   }
+  console.log("Generating cards complete!, page stops loading");
+  isLoading = false;
 };
 
+// fetching data when there is no data from local storage
 async function fetchData(url, limit, gen) {
+  console.log(`Rendering gen ${gen} by FETCHING DATA...`);
   const y = await fetch(url);
   const data1 = await y.json();
   document.getElementById(
     "url"
   ).innerHTML = `There are ${limit} pokemons on Generation ${gen}`;
   document.querySelector(".card-container").innerHTML = "";
-  console.log(`Rendering gen ${gen} from fetched data...`);
+
   pokemonData1 = data1.results;
 
   for (pokemon of pokemonData1) {
@@ -88,55 +93,65 @@ async function fetchData(url, limit, gen) {
     pokeLocal.push(pokeNew);
     localStorage.setItem(`pokeGen${gen}`, JSON.stringify(pokeLocal));
   }
+  pokeLocal = [];
+  console.log("Generating cards complete!, page stops loading");
+  isLoading = false;
 }
 
 const genSearch = (value) => {
   gen = value;
-  console.log("gen: ", gen);
-  switch (gen) {
-    case "1":
-      limit = 151;
-      offset = 0;
-      break;
-    case "2":
-      limit = 100;
-      offset = 151;
-      break;
-    case "3":
-      limit = 135;
-      offset = 251;
-      break;
-    case "4":
-      limit = 107;
-      offset = 386;
-      break;
-    case "5":
-      limit = 156;
-      offset = 493;
-      break;
-    case "6":
-      limit = 72;
-      offset = 649;
-      break;
-    case "7":
-      limit = 88;
-      offset = 721;
-      break;
-    case "8":
-      limit = 96;
-      offset = 809;
-      break;
-    case "9":
-      limit = 16;
-      offset = 905;
-      break;
-  }
-  url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
-  document.getElementById("url").innerHTML = "Loading, please wait....";
-
-  if (localStorage.getItem(`pokeGen${gen}`) != null) {
-    renderCardFromLocal(gen);
+  if (isLoading == true) {
+    console.log("Please wait");
+    document.getElementById("url").innerHTML =
+      "Page is still loading, please wait and try again";
+    return;
   } else {
-    fetchData(url, limit, gen);
+    isLoading = true;
+    console.log(`looking for Gen ${gen}`);
+    switch (gen) {
+      case "1":
+        limit = 151;
+        offset = 0;
+        break;
+      case "2":
+        limit = 100;
+        offset = 151;
+        break;
+      case "3":
+        limit = 135;
+        offset = 251;
+        break;
+      case "4":
+        limit = 107;
+        offset = 386;
+        break;
+      case "5":
+        limit = 156;
+        offset = 493;
+        break;
+      case "6":
+        limit = 72;
+        offset = 649;
+        break;
+      case "7":
+        limit = 88;
+        offset = 721;
+        break;
+      case "8":
+        limit = 96;
+        offset = 809;
+        break;
+      case "9":
+        limit = 16;
+        offset = 905;
+        break;
+    }
+    url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+
+    if (localStorage.getItem(`pokeGen${gen}`) != null) {
+      renderCardFromLocal(gen);
+    } else {
+      fetchData(url, limit, gen);
+    }
   }
 };
