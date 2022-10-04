@@ -1,14 +1,39 @@
 let pokemonData1 = [];
 let pokemonData2;
+let pokeLocal = [];
 let cardTitle = [];
 let typeData;
 let card, limit, offset, url, gen;
 content = document.querySelector(".card-container");
 
-const renderCard = (card) => {
-  content.innerHTML += card;
-  console.log("done");
+// render card with data from local storage
+const renderCardFromLocal = (gen) => {
+  console.log(`Rendering Gen ${gen} from local storage...`);
+  document.getElementById(
+    "url"
+  ).innerHTML = `There are ${limit} pokemons on Generation ${gen}`;
+  document.querySelector(".card-container").innerHTML = "";
+  let dataFromStorage = JSON.parse(localStorage.getItem(`pokeGen${gen}`));
+  console.log(dataFromStorage);
+  for (pokemon of dataFromStorage) {
+    pokemonImg = pokemon.img;
+    pokemonName = pokemon.name;
+    pokemonType = pokemon.type.split(",");
+
+    const cardType = pokemonType
+      .map((type) => {
+        return `<p class="card-type-item ${type}"></p>`;
+      })
+      .join("");
+    const cardTitle = `<h4 class="card-title">${pokemonName}</h4>`;
+    const cardImg = pokemonImg;
+    card = `<div class="card">
+          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
+          <div class="card-type"> ${cardType}</div></div>`;
+    content.innerHTML += card;
+  }
 };
+
 async function fetchData(url, limit, gen) {
   const y = await fetch(url);
   const data1 = await y.json();
@@ -16,50 +41,57 @@ async function fetchData(url, limit, gen) {
     "url"
   ).innerHTML = `There are ${limit} pokemons on Generation ${gen}`;
   document.querySelector(".card-container").innerHTML = "";
+  console.log(`Rendering gen ${gen} from fetched data...`);
   pokemonData1 = data1.results;
-  console.log("pokemonData1: ", pokemonData1);
 
   for (pokemon of pokemonData1) {
     const z = await fetch(`${pokemon.url}`);
     const data2 = await z.json();
+
     let pokemonType = data2.types;
     pokemonData2 = data2;
     let pokemonImg = data2.sprites;
 
+    const pokeType = pokemonType
+      .map((pokemon) => {
+        return pokemon.type.name;
+      })
+      .join(",");
     const cardType = pokemonType
       .map((pokemon) => {
         return `
    <p class="card-type-item ${pokemon.type.name}"></p>`;
       })
       .join("");
-    console.log("cardType: ", cardType);
 
+    const pokeTitle = pokemonData2.name.toUpperCase();
     const cardTitle = `<h4 class="card-title">${pokemonData2.name.toUpperCase()}</h4>`;
 
-    console.log("cardTitle: ", cardTitle);
-
+    const pokeImg = pokemonImg.other["official-artwork"].front_default;
     const cardImg = pokemonImg.other["official-artwork"].front_default;
-    console.log("cardImg: ", cardImg);
 
+    // render card with fetched data
     card = `<div class="card">
           <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
           <div class="card-type"> ${cardType}</div></div>`;
-    console.log("card: ", card);
-    renderCard(card);
-  }
-}
-console.log("pokemonData2: ", pokemonData2);
-class Card {
-  constructor(img, card, type) {
-    this.img = img;
-    this.card = card;
-    this.type = type;
+    content.innerHTML += card;
+
+    // adding data to localstorage
+    class Pokemon {
+      constructor(name, img, type) {
+        this.name = name;
+        this.img = img;
+        this.type = type;
+      }
+    }
+    let pokeNew = new Pokemon(pokeTitle, pokeImg, pokeType);
+    pokeLocal.push(pokeNew);
+    localStorage.setItem(`pokeGen${gen}`, JSON.stringify(pokeLocal));
   }
 }
 
 const genSearch = (value) => {
   gen = value;
-
   switch (gen) {
     case "1":
       limit = 151;
@@ -100,5 +132,27 @@ const genSearch = (value) => {
   }
   url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
   document.getElementById("url").innerHTML = "Loading, please wait....";
-  fetchData(url, limit, gen);
+
+  if (localStorage.getItem(`pokeGen${gen}`) != null) {
+    renderCardFromLocal(gen);
+  } else {
+    fetchData(url, limit, gen);
+  }
 };
+
+/* // create a card
+    const cardType = pokemonType
+      .map((pokemon) => {
+        return `
+   <p class="card-type-item ${pokemon.type.name}"></p>`;
+      })
+      .join("");
+
+    const cardTitle = `<h4 class="card-title">${pokemonData2.name.toUpperCase()}</h4>`;
+
+    const cardImg = pokemonImg.other["official-artwork"].front_default;
+
+    card = `<div class="card">
+          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
+          <div class="card-type"> ${cardType}</div></div>`;
+    renderCard(card); */
