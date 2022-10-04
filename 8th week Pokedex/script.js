@@ -92,6 +92,7 @@ async function fetchData(url, limit, gen) {
 
 const genSearch = (value) => {
   gen = value;
+  console.log("gen: ", gen);
   switch (gen) {
     case "1":
       limit = 151;
@@ -139,20 +140,3 @@ const genSearch = (value) => {
     fetchData(url, limit, gen);
   }
 };
-
-/* // create a card
-    const cardType = pokemonType
-      .map((pokemon) => {
-        return `
-   <p class="card-type-item ${pokemon.type.name}"></p>`;
-      })
-      .join("");
-
-    const cardTitle = `<h4 class="card-title">${pokemonData2.name.toUpperCase()}</h4>`;
-
-    const cardImg = pokemonImg.other["official-artwork"].front_default;
-
-    card = `<div class="card">
-          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
-          <div class="card-type"> ${cardType}</div></div>`;
-    renderCard(card); */
