@@ -53,25 +53,88 @@ body {
   color: black;
 }
 .card-type-item {
-  width: fit-content;
+  height: 50px;
   display: inline-block;
   padding: 2px;
   border-radius: 5px;
   width: 57px;
   text-align: center;
 }
-.grass {
-  background-color: green;
+
+.bug,
+.dark,
+.dragon,
+.electric,
+.fairy,
+.fighting,
+.fire,
+.flying,
+.ghost,
+.grass,
+.ground,
+.ice,
+.normal,
+.poison,
+.psychic,
+.rock,
+.steel,
+.water {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
-.poison {
-  background-color: purple;
+
+.bug {
+  background-image: url(assets/type_icon/Bug_Type_Icon.png);
+}
+.dark {
+  background-image: url(assets/type_icon/Dark_Type_Icon.png);
+}
+.dragon {
+  background-image: url(assets/type_icon/Dragon_Type_Icon.png);
+}
+.electric {
+  background-image: url(assets/type_icon/Electric_Type_Icon.png);
+}
+.fairy {
+  background-image: url(assets/type_icon/Fairy_Type_Icon.png);
+}
+.fighting {
+  background-image: url(assets/type_icon/Fighting_Type_Icon.png);
 }
 .fire {
-  background-color: red;
+  background-image: url(assets/type_icon/Fire_Type_Icon.png);
 }
 .flying {
-  background-color: blue;
+  background-image: url(assets/type_icon/Flying_Type_Icon.png);
+}
+.ghost {
+  background-image: url(assets/type_icon/Ghost_Type_Icon.png);
+}
+.grass {
+  background-image: url(assets/type_icon/Grass_Type_Icon.png);
+}
+.ground {
+  background-image: url(assets/type_icon/Ground_Type_Icon.png);
+}
+.ice {
+  background-image: url(assets/type_icon/Ice_Type_Icon.png);
+}
+.normal {
+  background-image: url(assets/type_icon/Normal_Type_Icon.png);
+}
+.poison {
+  background-image: url(assets/type_icon/Poison_Type_Icon.png);
+}
+.psychic {
+  background-image: url(assets/type_icon/Psychic_Type_Icon.png);
+}
+.rock {
+  background-image: url(assets/type_icon/Rock_Type_Icon.png);
+}
+.steel {
+  background-image: url(assets/type_icon/Steel_Type_Icon.png);
 }
 .water {
-  background-color: aqua;
+  background-image: url(assets/type_icon/Water_Type_Icon.png);
 }

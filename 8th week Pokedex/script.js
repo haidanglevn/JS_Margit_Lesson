@@ -1,4 +1,5 @@
 let pokemonData1 = [];
+let pokemonData2;
 let cardTitle = [];
 let typeData;
 let card, limit, offset, url, gen;
@@ -22,13 +23,13 @@ async function fetchData(url, limit, gen) {
     const z = await fetch(`${pokemon.url}`);
     const data2 = await z.json();
     let pokemonType = data2.types;
-    let pokemonData2 = data2;
+    pokemonData2 = data2;
     let pokemonImg = data2.sprites;
 
     const cardType = pokemonType
       .map((pokemon) => {
         return `
-   <p class="card-type-item ${pokemon.type.name}">${pokemon.type.name}</p>`;
+   <p class="card-type-item ${pokemon.type.name}"></p>`;
       })
       .join("");
     console.log("cardType: ", cardType);
@@ -37,8 +38,8 @@ async function fetchData(url, limit, gen) {
 
     console.log("cardTitle: ", cardTitle);
 
-    const cardImg = pokemonImg.other.official - artwork.front_default;
-    console.log(cardImg);
+    const cardImg = pokemonImg.other["official-artwork"].front_default;
+    console.log("cardImg: ", cardImg);
 
     card = `<div class="card">
           <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
@@ -47,9 +48,7 @@ async function fetchData(url, limit, gen) {
     renderCard(card);
   }
 }
-
-content2 = document.querySelector(".card-type");
-
+console.log("pokemonData2: ", pokemonData2);
 class Card {
   constructor(img, card, type) {
     this.img = img;
