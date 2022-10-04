@@ -2,6 +2,8 @@ tagContainer = document.querySelector(".tag-container");
 taskContainer = document.querySelector(".task-list");
 modal = document.getElementById("add-tag-modal");
 
+delButtons = document.querySelectorAll(".del-button");
+
 // turn on/off the modal for add task
 const addTagModal = () => {
   console.log("click");
@@ -16,23 +18,36 @@ const renderPage = () => {
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
   }
+  if (localStorage.getItem("done") == null) {
+    localStorage.setItem("done", "[]");
+  }
   let data = JSON.parse(localStorage.getItem("data"));
   console.log(data);
   for (let i = 0; i <= data.length - 1; i++) {
     taskContainer.innerHTML += `
-        <div class="task">
+        <div class="task" >
           <div class="task-info">
             <h2>${data[i].task}</h2>
             <p class="tag">${data[i].tag}</p class="tag">
           </div>
           <div class="action-button">
-            <button class="done-button" onclick="doneTask()">Done</button>
-            <button class="del-button" onclick="deleteTask()">Delete</button>
+            <button class="done-button" key="${i}">Done</button>
+            <button class="del-button" key="${i}">Delete</button>
           </div>
         </div>
     `;
   }
   document.getElementById("all-count").innerHTML = data.length;
+  // find which done button is click
+  doneButtons = document.querySelectorAll(".done-button");
+  doneButtons.forEach((button, i) => {
+    button.addEventListener("click", (i) => doneTask(i));
+  });
+
+  const doneTask = (i) => {
+    console.log(i);
+    console.log("hello");
+  };
 };
 renderPage();
 
@@ -51,10 +66,6 @@ const addTask = () => {
     let new_data = JSON.stringify(taskList);
     console.log("New data: ", new_data);
 
-    /*    //take out the old data first
-    let old_data = JSON.parse(localStorage.getItem("data"));
-    console.log("old data: ", old_data);
-    old_data.push(new_data); */
     // update the new data into localstorage
     localStorage.setItem("data", new_data);
     console.log("local storage: ", localStorage);
@@ -77,11 +88,12 @@ const addTask = () => {
             <p class="tag">${taskList[taskList.length - 1].tag}</p class="tag">
           </div>
           <div class="action-button">
-            <button class="done-button" onclick="doneTask()">Done</button>
-            <button class="del-button" onclick="deleteTask()">Delete</button>
+            <button class="done-button">Done</button>
+            <button class="del-button">Delete</button>
           </div>
         </div>
     `;
   };
   updatePage();
 };
+console.log(doneButtons);
