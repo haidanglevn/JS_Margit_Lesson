@@ -1,16 +1,20 @@
 let pokemonData1 = [];
 let cardTitle = [];
 let typeData;
-let card;
+let card, limit, offset, url, gen;
 content = document.querySelector(".card-container");
 
 const renderCard = (card) => {
   content.innerHTML += card;
   console.log("done");
 };
-async function fetchData() {
-  const y = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0");
+async function fetchData(url, limit, gen) {
+  const y = await fetch(url);
   const data1 = await y.json();
+  document.getElementById(
+    "url"
+  ).innerHTML = `There are ${limit} pokemons on Generation ${gen}`;
+  document.querySelector(".card-container").innerHTML = "";
   pokemonData1 = data1.results;
   console.log("pokemonData1: ", pokemonData1);
 
@@ -18,7 +22,7 @@ async function fetchData() {
     const z = await fetch(`${pokemon.url}`);
     const data2 = await z.json();
     let pokemonType = data2.types;
-    let pokemonForms = data2.forms;
+    let pokemonData2 = data2;
     let pokemonImg = data2.sprites;
 
     const cardType = pokemonType
@@ -29,12 +33,11 @@ async function fetchData() {
       .join("");
     console.log("cardType: ", cardType);
 
-    const cardTitle = pokemonForms.map((pokemon) => {
-      return `<h4 class="card-title">${pokemon.name}</h4>`;
-    });
+    const cardTitle = `<h4 class="card-title">${pokemonData2.name.toUpperCase()}</h4>`;
+
     console.log("cardTitle: ", cardTitle);
 
-    const cardImg = pokemonImg.other.dream_world.front_default;
+    const cardImg = pokemonImg.other.official - artwork.front_default;
     console.log(cardImg);
 
     card = `<div class="card">
@@ -55,4 +58,48 @@ class Card {
   }
 }
 
-fetchData();
+const genSearch = (value) => {
+  gen = value;
+
+  switch (gen) {
+    case "1":
+      limit = 151;
+      offset = 0;
+      break;
+    case "2":
+      limit = 100;
+      offset = 151;
+      break;
+    case "3":
+      limit = 135;
+      offset = 251;
+      break;
+    case "4":
+      limit = 107;
+      offset = 386;
+      break;
+    case "5":
+      limit = 156;
+      offset = 493;
+      break;
+    case "6":
+      limit = 72;
+      offset = 649;
+      break;
+    case "7":
+      limit = 88;
+      offset = 721;
+      break;
+    case "8":
+      limit = 96;
+      offset = 809;
+      break;
+    case "9":
+      limit = 16;
+      offset = 905;
+      break;
+  }
+  url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+  document.getElementById("url").innerHTML = "Loading, please wait....";
+  fetchData(url, limit, gen);
+};

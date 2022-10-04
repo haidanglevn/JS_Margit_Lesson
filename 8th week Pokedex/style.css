@@ -31,10 +31,10 @@ body {
   gap: 20px;
 }
 .card {
-  background-color: white;
+  background-color: blue;
   border-radius: 5%;
   width: 150px;
-  height: 230px;
+  height: auto;
 }
 .card-img {
   width: 150px;
