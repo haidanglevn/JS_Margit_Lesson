@@ -26,13 +26,12 @@ body {
   margin: 0 20vw;
   padding: 20px;
   text-align: center;
-  height: 40vh;
-  background-color: aqua;
+  height: 20vh;
 }
 
 #insertCar {
   grid-area: insertCar;
-  background-color: bisque;
+
   margin: 15px;
   padding: 5px;
   text-align: center;
