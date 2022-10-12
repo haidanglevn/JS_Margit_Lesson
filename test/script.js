@@ -1,36 +1,26 @@
-let leaderboard = document.querySelector(".leaderboard");
-let order = 0;
-let playerName;
-let score, i;
-let scoreList = [];
-class Score {
-  constructor(playerName, point) {
-    this.playerName = playerName;
-    this.point = point;
+class Car {
+  constructor(license, maker, model, owner, price, color) {
+    this.license = license;
+    this.maker = maker;
+    this.model = model;
+    this.owner = owner;
+    this.price = price;
+    this.color = color;
   }
 }
+let car1 = new Car("ABC123", "Toyota", "Corolla", "Dang", 10000, "black");
+let car2 = new Car("TRA423", "Nissan", "Quasqai", "John", 7500, "red");
+let car3 = new Car("IOO982", "Mercedes-Benz", "Vito", "Ashley", 15000, "white");
 
-const addScore = () => {
-  playerName = document.getElementById("playerName").value;
-  point = document.getElementById("point").value;
-  let newScore = new Score(playerName, point);
-  scoreList.unshift(newScore);
-  console.table(scoreList);
-  console.log(scoreList[0].playerName);
-  const updateScore = () => {
-    let scoreBoard = document.querySelector(".leaderboard-content");
-    let list;
-    if (scoreList.length <= 5) {
-      list = `<div class="attempt">${scoreList[0].playerName}: ${scoreList[0].point} </div>`;
-      scoreBoard.innerHTML += list;
-    } else {
-      list = `<div class="attempt">${scoreList[4].playerName}: ${scoreList[4].point} </div>
-        <div class="attempt">${scoreList[3].playerName}: ${scoreList[3].point} </div>
-        <div class="attempt">${scoreList[2].playerName}: ${scoreList[2].point} </div>
-        <div class="attempt">${scoreList[1].playerName}: ${scoreList[1].point} </div>
-        <div class="attempt">${scoreList[0].playerName}: ${scoreList[0].point} </div>`;
-      scoreBoard.innerHTML = list;
-    }
-  };
-  updateScore();
-};
+let carList = [];
+carList.push(car1, car2, car3);
+console.table(carList);
+
+const searchIndex = carList.findIndex(
+  (car) => car.model.toLowerCase() == "corolla"
+);
+
+console.log("searchIndex: ", searchIndex);
+
+carList.splice(searchIndex, 1);
+console.table(carList);
