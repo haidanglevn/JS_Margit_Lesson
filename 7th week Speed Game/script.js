@@ -62,8 +62,9 @@ const clickCorrect = (i) => {
 };
 
 const nameChange = (value) => {
-  document.getElementById("playerName").innerHTML = value;
+  document.getElementById("playerNameTop").innerHTML = value;
   playerName = value;
+  console.log(playerName);
 };
 const resetGame = () => {
   score = 0;

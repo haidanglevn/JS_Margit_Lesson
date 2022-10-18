@@ -6,8 +6,8 @@
 html {
   scroll-behavior: smooth;
   width: 100vw;
-  height: 100vh;
-  padding: 8vw;
+  height: auto;
+  max-height: 1200px;
 }
 h1,
 p {
@@ -29,7 +29,9 @@ body {
   font-size: 20px;
   text-shadow: 3px 3px black;
 }
-
+#playground {
+  padding: 8vw;
+}
 header,
 section,
 footer {
@@ -38,6 +40,8 @@ footer {
 }
 #playerName {
   font-size: 20px;
+  background-color: orange;
+  color: black;
 }
 
 .hearts {
@@ -64,7 +68,7 @@ footer {
   left: 0;
   top: 60px;
   width: 240px;
-  height: 270px;
+  height: 200px;
   background-color: black;
   border: 2px solid orangered;
   border-radius: 10%;
@@ -210,4 +214,57 @@ audio {
 
 audio:hover {
   opacity: 0.5;
+}
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 1200px) and (min-height: 660px) {
+  #playground {
+    padding: 15% 3vw;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-height: 660px) {
+  body {
+    height: 100vh;
+  }
+  .scoreboard {
+    width: 200px;
+    height: 180px;
+  }
+  #setting {
+    padding-top: 25%;
+  }
+  #playground {
+    padding: 25% 0.5vw;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-height: 660px) {
+  .scoreboard {
+    display: none;
+  }
+  #top-dif,
+  #top-playerName {
+    display: none;
+  }
+  #setting {
+    padding-top: 25%;
+  }
+  .circles {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+  }
+  .circle {
+    margin: 0;
+    width: 150px;
+    height: 100px;
+  }
+  #modal {
+    padding: 30% 0;
+  }
+  #close {
+    right: 0;
+  }
 }
