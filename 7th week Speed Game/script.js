@@ -37,15 +37,12 @@ const difficultyChange = (value) => {
   if (value == "easy") {
     pace = 1200;
     document.getElementById("difficulty").innerHTML = "Easy";
-    console.log(pace);
   } else if (value == "medium") {
     pace = 900;
     document.getElementById("difficulty").innerHTML = "Medium";
-    console.log(pace);
   } else {
     pace = 700;
     document.getElementById("difficulty").innerHTML = "Hard";
-    console.log(pace);
   }
 };
 
@@ -53,15 +50,12 @@ circles.forEach((circle, i) => {
   circle.addEventListener("click", () => clickCorrect(i));
 });
 const clickCorrect = (i) => {
-  console.log(i);
   if (random == i) {
     score += 1;
-    console.log("Right circle clicked, score = ", score);
     scored = true;
     chosen.classList.add("glow");
     clickRightSound.play();
   } else {
-    console.log("Wrong circle clicked, (-1)");
     minusLife();
   }
   document.getElementById("score").innerHTML = score;
@@ -70,7 +64,6 @@ const clickCorrect = (i) => {
 const nameChange = (value) => {
   document.getElementById("playerName").innerHTML = value;
   playerName = value;
-  console.log(playerName);
 };
 const resetGame = () => {
   score = 0;
@@ -201,13 +194,19 @@ class Score {
     this.score = score;
   }
 }
-let scoreList = [];
+// add score to localStorage
+if (localStorage.getItem("score") == null) {
+  localStorage.setItem("score", "[]");
+}
+
 const addScore = (playerName, score) => {
-  /* playerName = document.getElementById("playerName").value;
-  score = document.getElementById("score").value; */
+  let scoreList = [];
+  scoreList = JSON.parse(localStorage.getItem("score"));
   let newScore = new Score(playerName, score);
   scoreList.unshift(newScore);
   console.table(scoreList);
+  let new_data = JSON.stringify(scoreList);
+  localStorage.setItem("score", new_data);
   const updateScore = () => {
     let scoreBoard = document.querySelector(".scoreboard-content");
     let list;
@@ -225,3 +224,28 @@ const addScore = (playerName, score) => {
   };
   updateScore();
 };
+
+// update score after reload page
+const updateLastAttempts = () => {
+  let scoreList = [];
+  scoreList = JSON.parse(localStorage.getItem("score"));
+  const updateScore = () => {
+    let scoreBoard = document.querySelector(".scoreboard-content");
+    let list;
+    if (scoreList.length <= 5) {
+      for (i = 0; i < 4; i++) {
+        list = `<div class="attempt">${scoreList[i].playerName}: ${scoreList[i].score} </div>`;
+        scoreBoard.innerHTML += list;
+      }
+    } else {
+      list = `<div class="attempt">${scoreList[4].playerName}: ${scoreList[4].score} </div>
+        <div class="attempt">${scoreList[3].playerName}: ${scoreList[3].score} </div>
+        <div class="attempt">${scoreList[2].playerName}: ${scoreList[2].score} </div>
+        <div class="attempt">${scoreList[1].playerName}: ${scoreList[1].score} </div>
+        <div class="attempt">${scoreList[0].playerName}: ${scoreList[0].score} </div>`;
+      scoreBoard.innerHTML = list;
+    }
+  };
+  updateScore();
+};
+updateLastAttempts();
