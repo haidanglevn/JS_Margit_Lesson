@@ -4,6 +4,9 @@ const stopButton = document.getElementById("stop");
 const circles = document.querySelectorAll(".circle");
 const result = document.getElementById("result");
 const hearts = document.querySelectorAll(".heart");
+const clickRightSound = new Audio("assets/sound/clickright.wav");
+const gameEndSound = new Audio("assets/sound/gameend.wav");
+const minusLifeSound = new Audio("assets/sound/minuslife.wav");
 let playerName = "Player";
 let random = 0;
 let pace = 900;
@@ -56,6 +59,7 @@ const clickCorrect = (i) => {
     console.log("Right circle clicked, score = ", score);
     scored = true;
     chosen.classList.add("glow");
+    clickRightSound.play();
   } else {
     console.log("Wrong circle clicked, (-1)");
     minusLife();
@@ -141,11 +145,13 @@ const minusLife = () => {
   dedCount += 1;
   hearts[hearts.length - dedCount].classList.add("ded");
   console.log("health decreased");
+  minusLifeSound.play();
 };
 
 /* end the game */
 const endGame = () => {
   clearInterval(gameRunning);
+  gameEndSound.play();
   openModal();
   chosen.classList.remove("active");
   console.log("game ended");

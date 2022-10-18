@@ -198,3 +198,16 @@ button:hover {
   margin-top: 30px;
   left: 32%;
 }
+
+/* AUDIO */
+audio {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 39%;
+  opacity: 0.05;
+}
+
+audio:hover {
+  opacity: 0.5;
+}
