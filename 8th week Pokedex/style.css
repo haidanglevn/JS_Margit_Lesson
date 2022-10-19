@@ -17,11 +17,13 @@ body {
   height: 100px;
   width: 100%;
 }
-#url {
+#url,
+p {
   font-size: 30px;
   color: yellow;
   text-shadow: 3px 3px #001eff;
 }
+
 button {
   font-size: 20px;
   padding: 20px;
@@ -38,6 +40,7 @@ button:hover {
 }
 .search-area {
   padding: 20px;
+  display: none;
 }
 #search-name {
   width: 30%;

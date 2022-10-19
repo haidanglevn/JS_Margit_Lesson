@@ -38,17 +38,20 @@
       <button value="9" onclick="genSearch(this.value)">Gen 9</button>
       <div id="url">Please choose a Generation to see the Pokemons</div>
     </section>
-    <!--     <section class="search-area">
-      <label for="search-name"></label>
-      <input
-        type="text"
-        name="search-name"
-        id="search-name"
-        placeholder="Search pokemon by name"
-      />
-      <button>Search</button>
-    </section> -->
-    <section class="index"></section>
+    <section class="search-area">
+      <div class="search-name">
+        <label for="search-name"><p>Search pokemon by name</p> </label>
+        <input
+          type="text"
+          name="search-name"
+          id="search-name"
+          placeholder="Search pokemon by name"
+        />
+        <button onclick="searchPokemon()">Search</button>
+      </div>
+
+      <div class="search-type"></div>
+    </section>
     <section>
       <div class="card-container">
         <!-- <div class="card">
