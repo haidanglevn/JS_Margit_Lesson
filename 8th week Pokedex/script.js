@@ -11,7 +11,7 @@ content = document.querySelector(".card-container");
 // render card with data from local storage
 const renderCardFromLocal = (gen) => {
   console.log(`Rendering Gen ${gen} from LOCAL STORAGE...`);
-  searchArea.style.display = "block";
+  searchArea.style.display = "grid";
   document.getElementById(
     "url"
   ).innerHTML = `There are ${limit} pokemons on Generation ${gen}`;

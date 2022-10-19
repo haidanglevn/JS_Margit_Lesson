@@ -38,13 +38,36 @@ button:hover {
   cursor: pointer;
   border: 5px solid white;
 }
+
+/* SEARCH AREA */
 .search-area {
   padding: 20px;
-  display: block;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 40% 60%;
 }
 #search-name {
-  width: 30%;
+  width: 80%;
+  height: 50px;
+  font-size: 25px;
 }
+.search-name button {
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+}
+.search-type button {
+  background-color: red;
+}
+.reset {
+  font-size: 16px;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  padding: 2px;
+}
+
+/* CARD CONTAINER */
 .card-container {
   display: inline-grid;
   grid-template-columns: auto auto auto auto auto auto;
@@ -166,4 +189,44 @@ button:hover {
 }
 .water {
   background-image: url(assets/type_icon/Water_Type_Icon.png);
+}
+
+/* MEDIA QUERRIES */
+/* for ipad mini */
+@media screen and (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: auto auto auto auto auto;
+  }
+  #search-name {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .card-container {
+    grid-template-columns: auto auto auto auto;
+  }
+  #search-name {
+    width: 50%;
+  }
+}
+/* for iphone */
+@media screen and (max-width: 500px) {
+  button {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .search-area {
+    grid-template-columns: auto;
+  }
+  #search-name {
+    font-size: 16px;
+    height: 20px;
+  }
+  p,
+  #url {
+    font-size: 24px;
+  }
+  .card-container {
+    grid-template-columns: auto auto;
+  }
 }
