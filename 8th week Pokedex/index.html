@@ -40,17 +40,112 @@
     </section>
     <section class="search-area">
       <div class="search-name">
-        <label for="search-name"><p>Search pokemon by name</p> </label>
+        <label for="search-name"><p>Search pokemon by name:</p> </label>
         <input
           type="text"
           name="search-name"
           id="search-name"
           placeholder="Search pokemon by name"
         />
-        <button onclick="searchPokemon()">Search</button>
+        <button onclick="searchName()">Search</button>
       </div>
 
-      <div class="search-type"></div>
+      <div class="search-type">
+        <p>Search pokemon by type:</p>
+        <button
+          value="bug"
+          class="bug"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="dark"
+          class="dark"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="dragon"
+          class="dragon"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="electric"
+          class="electric"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="fairy"
+          class="fairy"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="fighting"
+          class="fighting"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="fire"
+          class="fire"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="flying"
+          class="flying"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="ghost"
+          class="ghost"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="grass"
+          class="grass"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="ground"
+          class="ground"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="ice"
+          class="ice"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="normal"
+          class="normal"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="poison"
+          class="poison"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="psychic"
+          class="psychic"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="rock"
+          class="rock"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="steel"
+          class="steel"
+          onclick="searchType(this.value)"
+        ></button>
+        <button
+          value="water"
+          class="water"
+          onclick="searchType(this.value)"
+        ></button>
+        <button value="reset" class="reset" onclick="searchType(this.value)">
+          Reset
+        </button>
+      </div>
     </section>
     <section>
       <div class="card-container">

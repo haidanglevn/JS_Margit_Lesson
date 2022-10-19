@@ -159,15 +159,10 @@ const genSearch = (value) => {
   }
 };
 
-if (localStorage.getItem("search") == null) {
-  localStorage.setItem("search", "[]");
-}
-/* Search function */
-const searchPokemon = (value) => {
+/* SEARCH FUNCTION */
+const searchName = (value) => {
   value = document.querySelector("#search-name").value;
   let key = `pokeGen${lastFetch}`;
-  console.log("Active key is ", key);
-  console.log("Active value is ", value);
   let searchData = JSON.parse(localStorage.getItem(key));
   let result = [];
   for (pokemon of searchData) {
@@ -179,6 +174,41 @@ const searchPokemon = (value) => {
   console.table(result);
   content.innerHTML = "";
   if (result == "[]") {
+    renderCardFromLocal(lastFetch);
+  } else {
+    for (pokemon of result) {
+      pokemonImg = pokemon.img;
+      pokemonName = pokemon.name;
+      pokemonType = pokemon.type.split(",");
+      const cardType = pokemonType
+        .map((type) => {
+          return `<p class="card-type-item ${type}"></p>`;
+        })
+        .join("");
+      const cardTitle = `<h4 class="card-title">${pokemonName}</h4>`;
+      const cardImg = pokemonImg;
+      card = `<div class="card">
+          <img src="${cardImg}" alt="avatar" class="card-img" />${cardTitle}
+          <div class="card-type"> ${cardType}</div></div>`;
+      content.innerHTML += card;
+    }
+  }
+};
+
+const searchType = (value) => {
+  console.log(value);
+  let key = `pokeGen${lastFetch}`;
+  let searchData = JSON.parse(localStorage.getItem(key));
+  let result = [];
+  for (pokemon of searchData) {
+    if (pokemon.type.includes(value)) {
+      console.log("Found");
+      result.push(pokemon);
+    }
+  }
+  console.table(result);
+  content.innerHTML = "";
+  if (value == "reset") {
     renderCardFromLocal(lastFetch);
   } else {
     for (pokemon of result) {
